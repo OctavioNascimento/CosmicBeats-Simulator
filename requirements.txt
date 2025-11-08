@@ -1,10 +1,2 @@
-astropy
-dask
-geopy
-gradio
-numpy
-pandas
-plotly
-scipy
-statsmodels
-tqdm
+skyfield
+pyarrow
