@@ -247,13 +247,11 @@ class BaselineScheduler:
         if not alive_sats: return None
         return min(alive_sats, key=lambda s: s.get_queue_length())
 
-# --- BRAIN 2: LLMScheduler (Versão "Anti-Bloqueio" / REST API - CORRIGIDA) ---
+# --- BRAIN 2: LLMScheduler (V2.0 - Chain of Thought & Robust Regex) ---
 API_KEY = os.environ.get("GEMINI_API_KEY")
 
-# Import extra necessário para essa versão
 import requests
 import urllib3
-# Desabilita o aviso chato de "InsecureRequestWarning" no terminal
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class LLMScheduler:
@@ -261,108 +259,130 @@ class LLMScheduler:
         self.satellites = satellites
         self.logger = logger
         
-        # Correção do Tempo: Usamos get_current_sim_time(0) em vez de Time() vazio
-        start_time = get_current_sim_time(0) 
+        # Inicializa tempo corretamente
+        start_time = get_current_sim_time(0)
 
         if not API_KEY:
-            self.logger.write_Log("CRITICAL: GEMINI_API_KEY not found!", ELogType.LOGERROR, start_time)
+            self.logger.write_Log("CRITICAL: GEMINI_API_KEY not found!", "LOGERROR", start_time)
         else:
-            self.logger.write_Log("LLMScheduler initialized (REST Mode - SSL Verification OFF).", ELogType.LOGINFO, start_time)
+            self.logger.write_Log("LLMScheduler initialized (CoT Mode - Smart Reasoning).", "LOGINFO", start_time)
 
     def _state_to_prompt(self, task, current_time):
-        prompt = "You are the Master Scheduler for a Satellite Network.\n"
-        prompt += "CRITICAL RULE: DO NOT assign tasks to satellites that do not have enough FREE RAM. The task will crash immediately.\n\n"
+        # --- ENGENHARIA DE PROMPT V3 (Few-Shot + CoT) ---
+        prompt = "You are the Critical Mission Scheduler for a Satellite Network.\n"
+        prompt += "RULE: NEVER assign a task to a satellite with insufficient RAM. It is better to choose a slower CPU than to crash the task.\n\n"
         
-        prompt += f"--- NEW TASK ---\n"
+        prompt += "--- EXAMPLE SCENARIO ---\n"
+        prompt += "Task: Needs 800 MB RAM.\n"
+        prompt += "Sat 1: 500 MB Free (Fast CPU).\n"
+        prompt += "Sat 2: 1000 MB Free (Slow CPU).\n"
+        prompt += "Correct Decision: Sat 1 crashes (500 < 800). Sat 2 is valid. Select Sat 2.\n"
+        prompt += "JSON Output: {\"satellite_id\": 2}\n\n"
+        
+        prompt += f"--- CURRENT TASK ---\n"
         prompt += f"ID: {task.id} | Type: {task.type}\n"
-        prompt += f"REQUIRED RAM: {task.data_input_size} MB\n"
-        prompt += f"REQUIRED CPU: {task.mips_required} MIPS\n\n"
+        prompt += f"REQUIRED RAM: {task.data_input_size} MB\n\n"
         
-        prompt += "--- SATELLITE STATUS ---\n"
+        prompt += "--- SATELLITE FLEET STATUS ---\n"
         for sat in self.satellites:
             ram_free = sat.ram_container.level
-            cpu_load = sat.get_current_load_percentage()
-            
-            prompt += f"SAT {sat.nodeID}:\n"
+            prompt += f"SAT ID {sat.nodeID}:\n"
             prompt += f"  - RAM FREE: {ram_free:.1f} MB"
             
-            # Helper logic for the LLM
             if ram_free < task.data_input_size:
-                 prompt += f" (NOT ENOUGH! Need {task.data_input_size - ram_free:.1f} more)"
+                 prompt += " [NOT ENOUGH RAM! DANGER]"
             else:
-                 prompt += " (OK)"
+                 prompt += " [RAM OK]"
             
-            prompt += f"\n  - CPU Speed: {sat.cpu_capacity_mips} MIPS | Load: {cpu_load:.0f}%\n\n"
+            prompt += f"\n  - CPU: {sat.cpu_capacity_mips} MIPS\n"
         
-        prompt += "STEP-BY-STEP REASONING:\n"
-        prompt += "1. List satellites with enough RAM.\n"
-        prompt += "2. Eliminate satellites with critical battery.\n"
-        prompt += "3. Pick the fastest one among the survivors.\n"
-        prompt += "4. Final Answer JSON.\n\n"
-        prompt += "RESPONSE FORMAT:\n"
-        prompt += "{\"reason\": \"Sat 101 has low RAM, Sat 102 is valid\", \"satellite_id\": 102}"
+        prompt += "\nINSTRUCTION: Solve the current task. Output valid JSON only.\n"
+        prompt += "JSON FORMAT: {\"satellite_id\": 102}"
         
         return prompt
-
+    
     def _call_gemini_api(self, prompt):
-        if not API_KEY: return None
+        if not API_KEY: 
+            print("DEBUG: No API KEY found.")
+            return None
 
-        # URL direta da API REST do Gemini
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={API_KEY}"
+        # --- MODELO CORRETO PARA SEU TIER (Gratuito e Rápido) ---
+        # O gemini-2.0-flash apareceu na sua lista e é o mais robusto hoje
+        model_name = "gemini-2.0-flash" 
+        
+        # A API v1beta aceita o nome direto sem "models/"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={API_KEY}"
         
         headers = {'Content-Type': 'application/json'}
         
-        # Corpo da requisição
+        # Ajustamos o output tokens para garantir respostas completas
         data = {
-            "contents": [{
-                "parts": [{"text": prompt}]
-            }],
+            "contents": [{"parts": [{"text": prompt}]}],
             "generationConfig": {
                 "temperature": 0.1,
-                "maxOutputTokens": 100
+                "maxOutputTokens": 1000
             }
         }
 
         try:
-            # O SEGREDO ESTÁ AQUI: verify=False ignora o certificado do Netskope
+            # print(f"DEBUG: Calling {model_name}...") # Debug opcional
+            
             response = requests.post(url, headers=headers, json=data, verify=False)
             
             if response.status_code == 200:
-                # O JSON de resposta da REST API é um pouco diferente da lib python
                 result = response.json()
                 try:
-                    return result['candidates'][0]['content']['parts'][0]['text']
+                    text = result['candidates'][0]['content']['parts'][0]['text']
+                    return text
                 except KeyError:
                     return None
+            
+            elif response.status_code == 429:
+                print(f"DEBUG: Quota Exceeded (429). Waiting...")
+                return None
             else:
-                # Se der erro (ex: 400, 500), mostramos o motivo
-                # print(f"API Error {response.status_code}: {response.text}") 
+                print(f"DEBUG: API Error {response.status_code}: {response.text}")
                 return None
                 
         except Exception as e:
-            # print(f"Request failed: {e}")
+            print(f"DEBUG: Exception: {e}")
             return None
-
+        
     def _response_to_action(self, response_text):
         if not response_text: return None
         try:
-            match = re.search(r'[:"]?\s*(\d{3})\s*["}]?', response_text) 
+            # Regex melhorado: Procura especificamente pela chave do JSON
+            # Isso evita pegar o número "101" se ele aparecer no texto de raciocínio
+            match = re.search(r'"satellite_id"\s*:\s*(\d+)', response_text)
+            
             if match:
                 chosen_id = int(match.group(1))
                 for sat in self.satellites:
                     if sat.nodeID == chosen_id: return sat
+            
+            # Fallback regex antigo (caso a IA esqueça as aspas)
+            else:
+                match_fallback = re.search(r'JSON:.*?(\d{3})', response_text, re.DOTALL)
+                if match_fallback:
+                    chosen_id = int(match_fallback.group(1))
+                    for sat in self.satellites:
+                         if sat.nodeID == chosen_id: return sat
+                         
         except: pass
         return None
 
     def schedule_task(self, task, current_time):
-        # 1. Tenta usar o Gemini via REST
         prompt = self._state_to_prompt(task, current_time)
         resp_text = self._call_gemini_api(prompt)
+        
+        # Debug: Descomente abaixo se quiser ver o Gemini "pensando" no terminal
+        print(f"\n--- AI THOUGHTS ---\n{resp_text}\n-------------------")
+        
         decision = self._response_to_action(resp_text)
         
         if decision: return decision
         
-        # 2. Fallback
+        # Fallback
         valid_sats = [s for s in self.satellites if not s.battery_depleted]
         if not valid_sats: return None
         return min(valid_sats, key=lambda s: s.get_queue_length())
