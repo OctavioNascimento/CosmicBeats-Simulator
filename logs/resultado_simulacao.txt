@@ -1,8 +1,12 @@
-((venv) ) octavio.nascimento@12130-MB CosmicBeats-Simulator % python3 main.py
 [ELogType.LOGWARN], Constellation1_0_SAT_1, 2022-11-14 12:00:00, ModelOrbit: always_calculate not provided provided. Defaulting to False
 
 [ELogType.LOGWARN], Constellation1_0_SAT_2, 2022-11-14 12:00:00, ModelOrbit: always_calculate not provided provided. Defaulting to False
 
+>>> [MEC] ManagerParallel Initialized. Setting up AI...
+>>> [MEC] Gemini Brain Initialized.
+>>> [MEC] Setup Nodes called with 14 nodes.
+>>> [MEC] Upgraded SatelliteBasic (ID 1) -> BRAZIL
+>>> [MEC] Upgraded SatelliteBasic (ID 2) -> USA
 [Running Sim]: Current step: 0
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:00, NMA: Executing
 
@@ -200,6 +204,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:30, NMA: Executing
 
+
+[MEC T+30.0] New Task 1 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:35, NMA: Executing
@@ -256,6 +263,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:40, NMA: Executing
 
+
+[MEC T+40.0] New Task 2 (BRAZIL)
+   ---> [AI] Assign to SAT 1
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:45, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:45, NMA: Executing
@@ -340,6 +350,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:55, NMA: Executing
 
+
+[MEC T+55.0] New Task 3 (BRAZIL)
+   ---> [AI] Assign to SAT 1
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:00, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:00, NMA: Executing
@@ -480,6 +493,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:20, NMA: Executing
 
+
+[MEC T+80.0] New Task 4 (BRAZIL)
+   ---> [AI] Assign to SAT 1
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:25, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:25, NMA: Executing
@@ -536,6 +552,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:30, NMA: Executing
 
+
+[MEC T+90.0] New Task 5 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:35, NMA: Executing
@@ -760,6 +779,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:10, NMA: Executing
 
+
+[MEC T+130.0] New Task 6 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:15, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:15, NMA: Executing
@@ -788,6 +810,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:15, NMA: Executing
 
+
+[MEC T+135.0] New Task 7 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:20, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:20, NMA: Executing
@@ -872,6 +897,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:30, NMA: Executing
 
+
+[MEC T+150.0] New Task 8 (BRAZIL)
+   ---> [AI] Assign to SAT 1
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:35, NMA: Executing
@@ -1096,6 +1124,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:10, NMA: Executing
 
+
+[MEC T+190.0] New Task 9 (USA)
+   ---> [AI] Assign to SAT 102
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:15, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:15, NMA: Executing
@@ -1236,6 +1267,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:35, NMA: Executing
 
+
+[MEC T+215.0] New Task 10 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:40, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:40, NMA: Executing
@@ -1292,6 +1326,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:45, NMA: Executing
 
+
+[MEC T+225.0] New Task 11 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:50, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:50, NMA: Executing
@@ -1488,6 +1525,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:20, NMA: Executing
 
+
+[MEC T+260.0] New Task 12 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:25, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:25, NMA: Executing
@@ -1544,6 +1584,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:30, NMA: Executing
 
+
+[MEC T+270.0] New Task 13 (BRAZIL)
+   ---> [AI] Assign to SAT 1
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:35, NMA: Executing
@@ -1600,6 +1643,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:40, NMA: Executing
 
+
+[MEC T+280.0] New Task 14 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:45, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:45, NMA: Executing
@@ -1825,6 +1871,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:20, NMA: Executing
 
+
+[MEC T+320.0] New Task 15 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:25, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:25, NMA: Executing
@@ -1881,6 +1930,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:30, NMA: Executing
 
+
+[MEC T+330.0] New Task 16 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:35, NMA: Executing
@@ -1909,6 +1961,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:35, NMA: Executing
 
+
+[MEC T+335.0] New Task 17 (USA)
+   ---> [AI] Assign to SAT 2
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:40, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:40, NMA: Executing
@@ -1993,6 +2048,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:50, NMA: Executing
 
+
+[MEC T+350.0] New Task 18 (BRAZIL)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:55, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:55, NMA: Executing
@@ -2105,6 +2163,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:10, NMA: Executing
 
+
+[MEC T+370.0] New Task 19 (BRAZIL)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:15, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:15, NMA: Executing
@@ -2273,6 +2334,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:40, NMA: Executing
 
+
+[MEC T+400.0] New Task 20 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:45, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:45, NMA: Executing
@@ -2301,6 +2365,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:45, NMA: Executing
 
+
+[MEC T+405.0] New Task 21 (BRAZIL)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:50, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:50, NMA: Executing
@@ -2497,6 +2564,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:20, NMA: Executing
 
+
+[MEC T+440.0] New Task 22 (BRAZIL)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:25, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:25, NMA: Executing
@@ -2553,6 +2623,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:30, NMA: Executing
 
+
+[MEC T+450.0] New Task 23 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:35, NMA: Executing
@@ -2581,6 +2654,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:35, NMA: Executing
 
+
+[MEC T+455.0] New Task 24 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:40, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:40, NMA: Executing
@@ -2609,6 +2685,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:40, NMA: Executing
 
+
+[MEC T+460.0] New Task 25 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:45, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:45, NMA: Executing
@@ -2749,6 +2828,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:05, NMA: Executing
 
+
+[MEC T+485.0] New Task 26 (BRAZIL)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:10, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:10, NMA: Executing
@@ -2777,6 +2859,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:10, NMA: Executing
 
+
+[MEC T+490.0] New Task 27 (BRAZIL)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:15, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:15, NMA: Executing
@@ -2861,6 +2946,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:25, NMA: Executing
 
+
+[MEC T+505.0] New Task 28 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:30, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:30, NMA: Executing
@@ -2889,6 +2977,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:30, NMA: Executing
 
+
+[MEC T+510.0] New Task 29 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:35, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:35, NMA: Executing
@@ -3001,6 +3092,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:50, NMA: Executing
 
+
+[MEC T+530.0] New Task 30 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:55, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:55, NMA: Executing
@@ -3169,6 +3263,9 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:20, NMA: Executing
 
+
+[MEC T+560.0] New Task 31 (USA)
+   ---> [AI] NO ROUTE
 [ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:25, NMA: Executing
 
 [ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:25, NMA: Executing
@@ -3365,4 +3462,4 @@
 
 [ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:55, NMA: Executing
 
-[Simulator Info] Time required to run the simulation: 0.06106375600211322 seconds.
+[Simulator Info] Time required to run the simulation: 24.162823524005944 seconds.

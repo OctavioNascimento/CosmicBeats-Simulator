@@ -198,7 +198,7 @@
     "simtime":
     {
         "starttime": "2022-11-14 12:00:00",
-        "endtime": "2022-11-14 12:10:00",
+        "endtime": "2022-11-14 12:20:00",
         "delta": 5.0
     },
     "simlogsetup":
