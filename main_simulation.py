@@ -1,12 +1,12 @@
 # main_simulation.py
 '''
 @desc
-    Main simulation script for NTN-MEC scheduling with Real-World constraints.
+    Phase 2.5: Logging, Visualization & Safe Mode.
     
-    UPDATES V3 (Complex Scenarios):
-    1. Geolocation Logic: Tasks can require specific regions (Data Sovereignty).
-    2. Battery Logic: Satellites can start with depleted batteries.
-    3. Advanced CoT Prompt: LLM evaluates Region -> RAM -> Battery -> CPU.
+    UPDATES:
+    - Auto-Logging: Saves metrics to logs/sim_run_<timestamp>.jsonl
+    - Safe Mode: Satellites reject tasks if battery < 20% (Professor's Request).
+    - Data Sovereignty: Strict Region checks.
 '''
 
 import simpy
@@ -14,443 +14,263 @@ import random
 import os
 import re
 import json
-import google.generativeai as genai
+import requests
+import urllib3
+import time as pytime
+from datetime import datetime
 from types import SimpleNamespace
-from typing import TYPE_CHECKING
 
-# --- Imports from CosmicBeats /src directory ---
-try:
-    from src.nodes.satellitebasic import SatelliteBasic, init_SatelliteBasic
-    from src.utils import Time
-    from src.simlogging.ilogger import ILogger, ELogType
-except ImportError:
-    print("Error: Could not import from 'src'.")
-    print("Please run this script from the root directory of the CosmicBeats-Simulator.")
-    exit(1)
+# Desabilita avisos de segurança
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # --- GLOBAL CONFIG ---
 SIM_START_TIME_STR = "2025-11-10 20:30:00"
+SIM_DURATION = 20 * 60 
+LAMBDA_REQUESTS_PER_MIN = 4.0 
+SAFE_MODE_THRESHOLD = 20.0 # % Battery limit (Professor's Rule)
 
-def get_current_sim_time(seconds_elapsed):
-    t = Time()
-    t.from_str(SIM_START_TIME_STR) 
-    t.add_seconds(seconds_elapsed) 
-    return t
+API_KEY = os.environ.get("GEMINI_API_KEY")
 
-class MockLogger(ILogger):
-    def __init__(self, sim_env):
-        self.env = sim_env
-        self.__logTypeLevel = {}
+# --- LOGGING SETUP (MODO SOBRESCREVER) ---
+LOG_DIR = "logs"
+os.makedirs(LOG_DIR, exist_ok=True)
+# Nome fixo para sempre sobrescrever o anterior
+LOG_FILE = os.path.join(LOG_DIR, "sim_run_latest.jsonl")
+
+# Limpa o arquivo no início da execução
+with open(LOG_FILE, "w") as f:
+    f.write("")
+
+def log_event(event_type, time_val, details):
+    """Escreve um evento estruturado no arquivo de log JSONL"""
+    entry = {
+        "timestamp": time_val,
+        "type": event_type,
+        "details": details
+    }
+    with open(LOG_FILE, "a") as f: # Usa 'a' para adicionar linha a linha
+        f.write(json.dumps(entry) + "\n")
     
-    @property
-    def logTypeLevel(self):
-        return self.__logTypeLevel
+    print(f"[{time_val:.2f}] {event_type}: {details}")
 
-    def write_Log(self, msg, log_type, timestamp):
-        time_str = f"{self.env.now:.2f}"
-        if isinstance(timestamp, Time):
-            time_str = timestamp.to_str()
-        print(f"[Time: {time_str}] {log_type}: {msg}")
+# --- MOCK HELPERS ---
+class Time:
+    def from_str(self, s): pass
+    def add_seconds(self, s): pass
+
+def get_current_sim_time(env_now): return env_now
 
 # =============================================================================
-# [UPDATED] Task Class (Now with Region Requirements)
+# [CORE] Task Class
 # =============================================================================
 class Task:
-    def __init__(self, task_id: int, task_type: str, mips: float, 
-                 data_in_mb: float, data_out_mb: float, deadline: float, 
-                 creation_time: float, required_region: str = None):
-        
+    def __init__(self, task_id, origin_gs_id, task_type, mips, data_mb, deadline, created_at):
         self.id = task_id
         self.type = task_type
-        self.mips_required = mips
-        self.data_input_size = data_in_mb
-        self.data_output_size = data_out_mb
+        self.mips = mips
+        self.data = data_mb
         self.deadline = deadline
-        self.creation_time = creation_time
-        
-        # New Constraint: Data Sovereignty
-        # If set (e.g., "BRAZIL"), task can ONLY be processed by sats in that region.
-        self.required_region = required_region 
+        self.origin = origin_gs_id
+        # Regra de Soberania Simples
+        self.region = "BRAZIL" if 3 <= origin_gs_id <= 8 else "USA"
 
-    def is_missed_deadline(self, current_time: float) -> bool:
-        if self.deadline is None: return False
-        return current_time > self.deadline
-
-    def __str__(self):
-        region_str = f"Region={self.required_region}" if self.required_region else "Global"
-        return (f"Task(id={self.id}, Type={self.type}, Data={self.data_input_size}MB, "
-                f"{region_str})")
+    def to_dict(self):
+        return {"id": self.id, "type": self.type, "region": self.region, "data_mb": self.data}
 
 # =============================================================================
-# [UPDATED] SatelliteMEC Class (Region + Initial Battery)
+# [NODE] SatelliteMEC (With Safe Mode)
 # =============================================================================
-class SatelliteMEC(SatelliteBasic):
-    def __init__(self, _env: simpy.Environment, _mec_details, _logger, **kwargs) -> None:
-        super().__init__(
-            _nodeID=kwargs['_nodeID'],
-            _topologyID=kwargs['_topologyID'],
-            _tleline1=kwargs['_tleline1'],
-            _tleline2=kwargs['_tleline2'],
-            _timeDelta=kwargs['_timeDelta'],
-            _timeStamp=kwargs['_timeStamp'],
-            _endtime=kwargs['_endtime'],
-            _Logger=_logger
-        )
+class SatelliteMEC:
+    def __init__(self, env, node_id, name, region, battery_pct, ram_mb, cpu_mips):
+        self.env = env
+        self.node_id = node_id
+        self.name = name
+        self.region = region
         
-        self.env = _env
-        self.logger = _logger
-
-        # --- COMPUTATION ---
-        self.cpu_capacity_mips = float(_mec_details.cpu_capacity_mips)
-        self.cpu_resource = simpy.Resource(self.env, capacity=1)
-
-        # --- MEMORY ---
-        self.ram_capacity_mb = float(getattr(_mec_details, 'ram_capacity_mb', 4096.0))
-        self.ram_container = simpy.Container(self.env, capacity=self.ram_capacity_mb, init=self.ram_capacity_mb)
-
-        # --- I/O ---
-        self.io_throughput_mbs = float(getattr(_mec_details, 'io_throughput_mbs', 500.0))
-
-        # --- POWER (UPDATED) ---
-        self.battery_capacity = float(getattr(_mec_details, 'battery_capacity_joules', 10000.0))
+        self.cpu = simpy.Resource(env, capacity=1)
+        self.cpu_mips = cpu_mips
+        self.ram = simpy.Container(env, capacity=ram_mb, init=ram_mb)
+        self.ram_total = ram_mb
         
-        # New: Allow starting with partial battery (to simulate dying satellites)
-        initial_pct = getattr(_mec_details, 'initial_battery_pct', 100.0)
-        self.current_battery = self.battery_capacity * (initial_pct / 100.0)
+        self.battery_capacity = 10000.0
+        self.battery = battery_pct * 100.0 
         
-        self.power_idle = 5.0
-        self.power_active = 20.0
-        self.total_energy_consumed = 0.0
-        self.battery_depleted = False
-        
-        # --- LOCATION (UPDATED) ---
-        # For simulation simplicity, we assign a region string.
-        # In full production, this would be calculated from TLE + Lat/Lon.
-        self.current_region = getattr(_mec_details, 'region', 'GLOBAL')
+        self.alive = True
+        self.env.process(self.life_cycle())
 
-        self.tasks_completed_count = 0
-        self.tasks_dropped_count = 0
+    def life_cycle(self):
+        while self.alive:
+            yield self.env.timeout(1.0)
+            # Consumo: 1 unidade basal, +5 se processando
+            drain = 1.0 + (5.0 if self.cpu.count > 0 else 0)
+            self.battery -= drain
+            
+            # Log de telemetria a cada 10s para não lotar o disco
+            if self.env.now % 10 == 0:
+                pct = (self.battery / self.battery_capacity) * 100
+                log_event("TELEMETRY", self.env.now, {
+                    "sat_id": self.node_id, 
+                    "battery": pct, 
+                    "ram_free": self.ram.level
+                })
 
-        self.env.process(self.battery_drain_process())
+            if self.battery <= 0:
+                self.battery = 0
+                self.alive = False
+                log_event("CRITICAL_FAILURE", self.env.now, f"{self.name} Battery Depleted.")
 
-    # ... (Getters unchanged)
-    def get_current_load_percentage(self) -> float:
-        if self.cpu_resource.capacity == 0: return 0.0
-        return (self.cpu_resource.count / self.cpu_resource.capacity) * 100.0
+    def get_telemetry(self):
+        pct = (self.battery / self.battery_capacity) * 100
+        return {
+            "id": self.node_id,
+            "region": self.region,
+            "battery_pct": pct,
+            "ram_free": self.ram.level,
+            "alive": self.alive,
+            "safe_mode": pct < SAFE_MODE_THRESHOLD
+        }
 
-    def get_ram_usage_percentage(self) -> float:
-        used = self.ram_capacity_mb - self.ram_container.level
-        return (used / self.ram_capacity_mb) * 100.0
-    
-    def get_queue_length(self) -> int:
-        return len(self.cpu_resource.queue)
+    def process_task(self, task):
+        # 1. Verifica se está vivo
+        if not self.alive: return
 
-    def process_task(self, task: Task):
-        current_time_obj = get_current_sim_time(self.env.now)
-
-        # 1. Battery Check
-        if self.battery_depleted:
-            self.logger.write_Log(f"Task {task.id} DROPPED. Sat {self.nodeID} DEAD (No Battery).", "LOGWARN", current_time_obj)
-            self.tasks_dropped_count += 1
-            return
-
-        # 2. Region Check (Simulating Access Control enforcement)
-        if task.required_region and task.required_region != self.current_region:
-            self.logger.write_Log(f"Task {task.id} REJECTED. Region Mismatch (Task: {task.required_region}, Sat: {self.current_region}).", "LOGWARN", current_time_obj)
-            self.tasks_dropped_count += 1
+        # 2. SAFE MODE CHECK (Professor's Rule)
+        batt_pct = (self.battery / self.battery_capacity) * 100
+        if batt_pct < SAFE_MODE_THRESHOLD:
+            log_event("TASK_REJECTED", self.env.now, f"{self.name} in SAFE MODE ({batt_pct:.1f}%). Task {task.id} refused.")
             return
 
         # 3. RAM Check
-        if self.ram_container.level < task.data_input_size:
-            self.logger.write_Log(f"Task {task.id} DROPPED. Sat {self.nodeID} OOM (Req: {task.data_input_size}MB, Free: {self.ram_container.level}MB).", "LOGWARN", current_time_obj)
-            self.tasks_dropped_count += 1
+        if self.ram.level < task.data:
+            log_event("TASK_DROPPED", self.env.now, f"{self.name} OOM for Task {task.id}")
             return
-
-        yield self.ram_container.get(task.data_input_size)
+        
+        # Aloca RAM
+        yield self.ram.get(task.data)
         
         try:
-            current_time_obj = get_current_sim_time(self.env.now)
-            self.logger.write_Log(f"Task {task.id} accepted by Sat {self.nodeID} ({self.current_region}).", "LOGINFO", current_time_obj)
-
-            io_time = task.data_input_size / self.io_throughput_mbs
-            yield self.env.timeout(io_time)
-
-            with self.cpu_resource.request() as req:
+            # Simula processamento
+            with self.cpu.request() as req:
                 yield req
-                current_time_obj = get_current_sim_time(self.env.now)
-
-                if task.is_missed_deadline(self.env.now):
-                     self.logger.write_Log(f"Task {task.id} missed deadline in queue!", "LOGWARN", current_time_obj)
-
-                processing_time = task.mips_required / self.cpu_capacity_mips
-                yield self.env.timeout(processing_time)
+                duration = task.mips / self.cpu_mips
+                yield self.env.timeout(duration)
                 
-                self.tasks_completed_count += 1
-                total_time = self.env.now - task.creation_time
-                current_time_obj = get_current_sim_time(self.env.now)
-                self.logger.write_Log(f"Task {task.id} FINISHED. Total Time: {total_time:.2f}s", "LOGINFO", current_time_obj)
-
+                log_event("TASK_COMPLETED", self.env.now, {
+                    "task_id": task.id, 
+                    "sat_id": self.node_id, 
+                    "duration": duration
+                })
         finally:
-            yield self.ram_container.put(task.data_input_size)
+            yield self.ram.put(task.data)
 
-    def battery_drain_process(self):
+# =============================================================================
+# [BRAIN] CentralBrainGS
+# =============================================================================
+class CentralBrainGS:
+    def __init__(self, env, satellites):
+        self.env = env
+        self.satellites = satellites
+        self.telemetry = {}
+        self.env.process(self.heartbeat())
+
+    def heartbeat(self):
         while True:
+            for s in self.satellites:
+                self.telemetry[s.node_id] = s.get_telemetry()
             yield self.env.timeout(1.0)
-            is_active = (self.cpu_resource.count > 0)
-            consumption = self.power_active if is_active else self.power_idle
-            
-            self.current_battery -= consumption
-            self.total_energy_consumed += consumption
-            
-            if self.current_battery <= 0:
-                self.battery_depleted = True
-                self.current_battery = 0
-                self.logger.write_Log(f"CRITICAL: Satellite {self.nodeID} BATTERY DEPLETED.", "LOGERROR", get_current_sim_time(self.env.now))
-                break
 
-# --- Helper to Init SatelliteMEC ---
-def init_SatelliteMEC(_env, _mec_details, _nodeDetails, _timeDetails, _topologyID, _logger):
-    t_start = Time()
-    t_start.from_str(_timeDetails.starttime)
-    t_end = Time()
-    t_end.from_str(_timeDetails.endtime)
-    
-    satellite_args = {
-        '_nodeID': _nodeDetails.nodeid,
-        '_topologyID': _topologyID,
-        '_tleline1': _nodeDetails.tle_1,
-        '_tleline2': _nodeDetails.tle_2,
-        '_timeDelta': _timeDetails.delta,
-        '_timeStamp': t_start,
-        '_endtime': t_end,
-    }
-    return SatelliteMEC(_env, _mec_details, _logger, **satellite_args)
-
-# --- BRAIN 1: BaselineScheduler ---
-class BaselineScheduler:
-    def __init__(self, satellites, logger):
-        self.satellites = satellites
-        self.logger = logger
-    
-    def schedule_task(self, task, current_time):
-        valid_sats = [s for s in self.satellites if not s.battery_depleted]
-        if not valid_sats: return None
-        # Heuristic: Just picks shortest queue, ignores Region and RAM!
-        return min(valid_sats, key=lambda s: s.get_queue_length())
-
-# =============================================================================
-# [UPDATED] LLMScheduler with Advanced Multi-Constraint Logic
-# =============================================================================
-API_KEY = os.environ.get("GEMINI_API_KEY")
-import requests
-import urllib3
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-class LLMScheduler:
-    def __init__(self, satellites, logger):
-        self.satellites = satellites
-        self.logger = logger
-        start_time = get_current_sim_time(0)
-        
-        if not API_KEY:
-            self.logger.write_Log("CRITICAL: GEMINI_API_KEY not found!", "LOGERROR", start_time)
-        else:
-            self.logger.write_Log("LLMScheduler initialized (Multi-Constraint Mode).", "LOGINFO", start_time)
-
-    def _state_to_prompt(self, task, current_time):
-        # --- PROMPT V4: Region + Battery + RAM ---
-        prompt = "You are an Autonomous Satellite Scheduler.\n"
-        prompt += "Evaluate candidates based on these STRICT rules (in order of priority):\n"
-        prompt += "1. REGION: If Task requires a region, Satellite MUST be in that region.\n"
-        prompt += "2. RAM: Satellite MUST have enough Free RAM.\n"
-        prompt += "3. ENERGY: Satellite MUST NOT have Critical Battery (<10%).\n"
-        prompt += "4. SPEED: Choose fastest CPU among valid candidates.\n\n"
-        
-        prompt += f"--- NEW TASK ---\n"
-        prompt += f"ID: {task.id} | Type: {task.type}\n"
-        prompt += f"REQUIREMENTS: RAM {task.data_input_size} MB | Region: {task.required_region if task.required_region else 'Any'}\n\n"
-        
-        prompt += "--- SATELLITE STATUS ---\n"
-        for sat in self.satellites:
-            ram_free = sat.ram_container.level
-            batt_pct = (sat.current_battery / sat.battery_capacity) * 100
-            
-            prompt += f"SAT {sat.nodeID}:\n"
-            prompt += f"  - Location: {sat.current_region}\n"
-            prompt += f"  - Battery: {batt_pct:.1f}%"
-            
-            if batt_pct < 10: prompt += " [CRITICAL!]"
-            else: prompt += " [OK]"
-            
-            prompt += f"\n  - RAM Free: {ram_free:.1f} MB\n"
-            prompt += f"  - CPU: {sat.cpu_capacity_mips} MIPS\n\n"
-        
-        prompt += "INSTRUCTION: Select the best satellite. Explain reasoning.\n"
-        prompt += "JSON FORMAT: {\"satellite_id\": 101}"
-        
-        return prompt
-
-    def _call_gemini_api(self, prompt):
+    def call_gemini(self, prompt):
         if not API_KEY: return None
-        model_name = "gemini-2.0-flash" 
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model_name}:generateContent?key={API_KEY}"
+        model = "gemini-2.0-flash"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={API_KEY}"
         headers = {'Content-Type': 'application/json'}
-        data = { "contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.1, "maxOutputTokens": 1000} }
-
+        data = { "contents": [{"parts": [{"text": prompt}]}], "generationConfig": {"temperature": 0.1} }
+        
         try:
-            response = requests.post(url, headers=headers, json=data, verify=False)
-            if response.status_code == 200:
-                try: return response.json()['candidates'][0]['content']['parts'][0]['text']
-                except: return None
-            elif response.status_code == 429:
-                print("DEBUG: Quota 429.")
-                return None
-            else:
-                return None
+            r = requests.post(url, headers=headers, json=data, verify=False)
+            if r.status_code == 200: return r.json()['candidates'][0]['content']['parts'][0]['text']
         except: return None
-
-    def _response_to_action(self, response_text):
-        if not response_text: return None
-        try:
-            match = re.search(r'"satellite_id"\s*:\s*(\d+)', response_text)
-            if match:
-                chosen_id = int(match.group(1))
-                for sat in self.satellites:
-                    if sat.nodeID == chosen_id: return sat
-            else:
-                # Fallback regex
-                match = re.search(r'JSON:.*?(\d{3})', response_text, re.DOTALL)
-                if match:
-                    chosen_id = int(match.group(1))
-                    for sat in self.satellites:
-                        if sat.nodeID == chosen_id: return sat
-        except: pass
         return None
 
-    def schedule_task(self, task, current_time):
-        prompt = self._state_to_prompt(task, current_time)
-        resp_text = self._call_gemini_api(prompt)
+    def decide(self, task):
+        # PROMPT ATUALIZADO COM REGRA DE SAFE MODE
+        prompt = "Scheduler Rules:\n"
+        prompt += f"1. REGION: Sat Region == Task Region ({task.region}).\n"
+        prompt += f"2. SAFETY: Battery > {SAFE_MODE_THRESHOLD}%. Do NOT kill the satellite.\n"
+        prompt += f"3. RAM: Free RAM > {task.data} MB.\n"
         
-        print(f"\n--- AI REASONING (Task {task.id}) ---\n{resp_text}\n-------------------")
+        prompt += f"\nTASK: ID {task.id} | Region {task.region} | RAM {task.data}\n"
+        prompt += "SATELLITES:\n"
         
-        decision = self._response_to_action(resp_text)
-        if decision: return decision
+        valid_exists = False
+        for sid, data in self.telemetry.items():
+            if not data['alive']: continue
+            valid_exists = True
+            safe_str = "SAFE_MODE" if data['safe_mode'] else "ACTIVE"
+            prompt += f"SAT {sid}: {data['region']} | Bat {data['battery_pct']:.1f}% ({safe_str}) | RAM {data['ram_free']}\n"
+            
+        if not valid_exists: return None
         
-        # Fallback
-        valid_sats = [s for s in self.satellites if not s.battery_depleted]
-        if not valid_sats: return None
-        return min(valid_sats, key=lambda s: s.get_queue_length())
+        prompt += "\nOutput JSON: {\"satellite_id\": 101} or null"
+        
+        resp = self.call_gemini(prompt)
+        # log_event("LLM_THOUGHT", self.env.now, resp) # Descomente para ver o raciocínio no log
+        
+        if resp:
+            try:
+                match = re.search(r'"satellite_id"\s*:\s*(\d+)', resp)
+                if match:
+                    tid = int(match.group(1))
+                    for s in self.satellites:
+                        if s.node_id == tid: return s
+            except: pass
+            
+        return None
 
 # =============================================================================
-# [UPDATED] Scenario Generator: Geo + Battery + RAM
+# [SCENARIO] Traffic Generator
 # =============================================================================
-def task_generator(env, scheduler, num_tasks, logger):
-    '''
-    Complex Scenario:
-    - Sat 101: BRAZIL, Fast CPU, LOW BATTERY (Risk!)
-    - Sat 102: USA, Slow CPU, Full Battery, Huge RAM.
-    '''
-    for i in range(num_tasks):
-        current_time_obj = get_current_sim_time(env.now)
+def traffic_gen(env, brain, stations):
+    i = 0
+    while True:
+        yield env.timeout(random.expovariate(LAMBDA_REQUESTS_PER_MIN / 60.0))
+        i += 1
         
-        rand_val = random.random()
+        # Cenário Misto
+        origin = random.choice(stations)
+        r = random.random()
+        if r < 0.4:   type, mips, data = "IOT_DATA", 150, 5
+        elif r < 0.7: type, mips, data = "GOV_DATA", 500, 200
+        else:         type, mips, data = "IMG_PROC", 2000, 1000 # Pesado
         
-        if rand_val < 0.33:
-            # TYPE A: Critical Gov Task (Must be in USA)
-            # Challenge: Sat 101 is faster, but is in Brazil. Must pick Sat 102.
-            t_type = "GOV_DATA"
-            mips = 1000
-            data = 500
-            deadline = env.now + 20.0
-            region = "USA"
-            
-        elif rand_val < 0.66:
-            # TYPE B: IoT Brazil (Must be in Brazil)
-            # Challenge: Sat 101 is in Brazil, BUT has Low Battery. 
-            # If battery is critical, AI might need to reject or take risk (depending on prompt).
-            t_type = "IOT_BRAZIL"
-            mips = 200
-            data = 10
-            deadline = env.now + 10.0
-            region = "BRAZIL"
-            
-        else:
-            # TYPE C: Global Image Proc (No Region)
-            # Challenge: Heavy RAM. Sat 101 has no RAM. Must pick Sat 102.
-            t_type = "GLOBAL_IMG"
-            mips = 3000
-            data = 1500
-            deadline = env.now + 60.0
-            region = None # Global
+        # Ajuste: Aumentamos a duração das tarefas pesadas para drenar bateria
+        if type == "IMG_PROC": mips = 5000 
         
-        new_task = Task(i, t_type, mips, data, 1.0, deadline, env.now, region)
-        logger.write_Log(f"GENERATOR: Created {new_task}", "LOGINFO", current_time_obj)
+        task = Task(i, origin['id'], type, mips, data, 60, env.now)
+        log_event("NEW_REQUEST", env.now, task.to_dict())
         
-        sat = scheduler.schedule_task(new_task, current_time_obj)
+        sat = brain.decide(task)
         if sat:
-            logger.write_Log(f"Scheduler assigned Task {new_task.id} to Sat {sat.nodeID}", "LOGDEBUG", current_time_obj)
-            env.process(sat.process_task(new_task))
+            log_event("ASSIGNED", env.now, f"Task {i} -> {sat.name}")
+            env.process(sat.process_task(task))
         else:
-            logger.write_Log(f"Task {new_task.id} NOT SCHEDULED (No Valid Sat).", "LOGWARN", current_time_obj)
-        
-        yield env.timeout(2.0)
+            log_event("SCHEDULER_REJECT", env.now, f"Task {i} not scheduled")
 
-# --- MAIN EXECUTION ---
+# =============================================================================
+# MAIN
+# =============================================================================
 if __name__ == "__main__":
-    print("--- NTN-MEC Sim: Multi-Constraint (Region/Battery/RAM) ---")
-    USE_LLM_BRAIN = True 
-
+    print(f"--- SIMULATION START (Logs in {LOG_FILE}) ---")
     env = simpy.Environment()
-    mock_logger = MockLogger(env)
     
-    # --- SETUP SATELLITES ---
+    # Sat 1: Começa com 25% (perto do limite de 20%) para testar o Safe Mode rápido
+    s1 = SatelliteMEC(env, 101, "SAT_BRAZIL", "BRAZIL", 25.0, 512, 2000)
+    # Sat 2: Tanque cheio
+    s2 = SatelliteMEC(env, 102, "SAT_USA", "USA", 100.0, 4096, 1000)
     
-    # Sat 101: The "Fragile Speedster" (Brazil)
-    # Fast CPU, but Low RAM and CRITICAL BATTERY START
-    sat1_details = SimpleNamespace(
-        cpu_capacity_mips=2000.0, 
-        ram_capacity_mb=512.0,    
-        io_throughput_mbs=600.0,
-        battery_capacity_joules=5000.0,
-        initial_battery_pct=8.0, # <--- DANGER! Starts at 8%
-        region="BRAZIL"          # <--- Location
-    )
+    gs_list = [{'id': i} for i in range(3, 15)]
+    brain = CentralBrainGS(env, [s1, s2])
     
-    # Sat 102: The "Heavy Lifter" (USA)
-    # Slow CPU, Huge RAM, Full Battery
-    sat2_details = SimpleNamespace(
-        cpu_capacity_mips=1000.0, 
-        ram_capacity_mb=4096.0,   
-        io_throughput_mbs=300.0,
-        battery_capacity_joules=10000.0,
-        initial_battery_pct=100.0,
-        region="USA"             # <--- Location
-    )
-
-    node_details = json.loads('{"nodeid": 1, "tle_1": "...", "tle_2": "...", "additionalargs": ""}', object_hook=lambda d: SimpleNamespace(**d))
-    time_details = json.loads(f'{{"starttime": "{SIM_START_TIME_STR}", "endtime": "2025-11-10 21:30:00", "delta": 1.0}}', object_hook=lambda d: SimpleNamespace(**d))
-
-    satellites = []
-    
-    node_details.nodeid = 101
-    s1 = init_SatelliteMEC(env, sat1_details, node_details, time_details, 1, mock_logger)
-    satellites.append(s1)
-    
-    node_details.nodeid = 102
-    s2 = init_SatelliteMEC(env, sat2_details, node_details, time_details, 1, mock_logger)
-    satellites.append(s2)
-
-    if USE_LLM_BRAIN:
-        print(">>> Using LLM Scheduler")
-        scheduler = LLMScheduler(satellites, mock_logger)
-    else:
-        print(">>> Using Baseline Scheduler")
-        scheduler = BaselineScheduler(satellites, mock_logger)
-
-    if 'scheduler' in locals():
-        env.process(task_generator(env, scheduler, 15, mock_logger))
-        env.run(until=100)
-        
-        print("\n--- RESULTS ---")
-        for s in satellites:
-            print(f"Sat {s.nodeID} ({s.current_region}): Completed {s.tasks_completed_count} | Dropped {s.tasks_dropped_count} | Battery End: {(s.current_battery/s.battery_capacity)*100:.1f}%")
+    env.process(traffic_gen(env, brain, gs_list))
+    env.run(until=SIM_DURATION)
+    print("--- SIMULATION END ---")

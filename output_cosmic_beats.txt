@@ -1,0 +1,3368 @@
+((venv) ) octavio.nascimento@12130-MB CosmicBeats-Simulator % python3 main.py
+[ELogType.LOGWARN], Constellation1_0_SAT_1, 2022-11-14 12:00:00, ModelOrbit: always_calculate not provided provided. Defaulting to False
+
+[ELogType.LOGWARN], Constellation1_0_SAT_2, 2022-11-14 12:00:00, ModelOrbit: always_calculate not provided provided. Defaulting to False
+
+[Running Sim]: Current step: 0
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:00:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:01:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:02:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:03:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:04:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:04:55, NMA: Executing
+
+[Running Sim]: Current step: 60
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:05:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:06:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:07:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:08:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:00, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:05, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:10, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:15, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:20, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:25, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:30, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:35, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:40, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:45, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:50, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_1, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_SAT_2, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_3, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_4, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_5, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_6, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_7, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_8, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_9, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_10, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_11, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_12, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_13, 2022-11-14 12:09:55, NMA: Executing
+
+[ELogType.LOGDEBUG], Constellation1_0_GS_14, 2022-11-14 12:09:55, NMA: Executing
+
+[Simulator Info] Time required to run the simulation: 0.06106375600211322 seconds.
