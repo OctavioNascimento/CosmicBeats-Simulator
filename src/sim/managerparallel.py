@@ -121,8 +121,6 @@ class ManagerParallel(IManager):
         self.__resumingCondition.set()
         
     def __compute_FOVs(self, **_kwargs):
-        # (Código original mantido para compatibilidade, omitido aqui por brevidade se não for usado, mas recomendo manter o original se puder. 
-        # Como o pastebin original tinha, vou manter a estrutura básica para não quebrar nada.)
         _numProcesses = mp.cpu_count()
         if ("_numProcesses" in _kwargs):
             _numProcesses = _kwargs["_numProcesses"]
@@ -247,8 +245,12 @@ class ManagerParallel(IManager):
         
         # Extrai nós das topologias para configurar
         all_nodes = []
-        for t in self.__topologies:
-            all_nodes.extend(t.nodes)
+        if isinstance(self.__topologies, dict):
+             for t in self.__topologies.values(): 
+                 if hasattr(t, 'nodes'): all_nodes.extend(t.nodes)
+        elif isinstance(self.__topologies, list):
+             for t in self.__topologies: 
+                 if hasattr(t, 'nodes'): all_nodes.extend(t.nodes)
         
         self.mec_orchestrator.setup_nodes(all_nodes)
         # --- MEC INJECTION END ---
@@ -295,5 +297,10 @@ class ManagerParallel(IManager):
             # ------------------------------------
 
             self.__currentStep += 1 
-            
+        
+        # --- MEC REPORT (NEW) ---
+        if hasattr(self, 'mec_orchestrator'):
+            self.mec_orchestrator.print_stats()
+        # ------------------------
+
         self.__stoppingCondition.set()

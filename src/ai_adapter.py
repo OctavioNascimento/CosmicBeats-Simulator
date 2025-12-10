@@ -43,16 +43,20 @@ class GeminiBrain:
         prompt += "Rules: 1. Region Match Strict. 2. Battery > 20%. 3. RAM Available.\n\n"
         
         prompt += f"TASK: ID {task['id']} | Region {task['region']} | RAM {task['ram']}MB\n"
-        prompt += "SATELLITES:\n"
+        prompt += "CANDIDATES:\n"
         
         candidates = False
+        # Aqui montamos a lista real: SAT 1, SAT 2...
         for s in satellites_state:
             prompt += f"SAT {s['id']}: {s['region']} | Bat {s['battery']:.1f}% | RAM {s['ram_free']}\n"
             candidates = True
             
         if not candidates: return None
         
-        prompt += "\nOutput JSON: {\"satellite_id\": 101}"
+        # --- CORREÇÃO AQUI ---
+        # Removemos o '101' hardcoded e pedimos para escolher um da lista acima.
+        prompt += "\nINSTRUCTION: Pick one SAT ID from the list above based on rules."
+        prompt += "\nOutput JSON: {\"satellite_id\": 2}" 
         
         resp = self._call_api(prompt)
         
