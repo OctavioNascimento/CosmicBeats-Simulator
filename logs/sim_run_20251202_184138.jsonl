@@ -1,0 +1,386 @@
+{"timestamp": 10.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.9, "ram_free": 512}}
+{"timestamp": 10.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 99.9, "ram_free": 4096}}
+{"timestamp": 11.23140982054595, "type": "NEW_REQUEST", "details": {"id": 1, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 11.23140982054595, "type": "ASSIGNED", "details": "Task 1 -> SAT_BRAZIL"}
+{"timestamp": 11.30640982054595, "type": "TASK_COMPLETED", "details": {"task_id": 1, "sat_id": 101, "duration": 0.075}}
+{"timestamp": 20.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.8, "ram_free": 512}}
+{"timestamp": 20.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 99.8, "ram_free": 4096}}
+{"timestamp": 30.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.7, "ram_free": 512}}
+{"timestamp": 30.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 99.7, "ram_free": 4096}}
+{"timestamp": 32.351882920721515, "type": "NEW_REQUEST", "details": {"id": 2, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 32.351882920721515, "type": "ASSIGNED", "details": "Task 2 -> SAT_USA"}
+{"timestamp": 37.351882920721515, "type": "TASK_COMPLETED", "details": {"task_id": 2, "sat_id": 102, "duration": 5.0}}
+{"timestamp": 40.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.6, "ram_free": 512}}
+{"timestamp": 40.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 99.35000000000001, "ram_free": 4096}}
+{"timestamp": 49.73992597813902, "type": "NEW_REQUEST", "details": {"id": 3, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 49.73992597813902, "type": "ASSIGNED", "details": "Task 3 -> SAT_BRAZIL"}
+{"timestamp": 49.98992597813902, "type": "TASK_COMPLETED", "details": {"task_id": 3, "sat_id": 101, "duration": 0.25}}
+{"timestamp": 50.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.5, "ram_free": 512}}
+{"timestamp": 50.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 99.25, "ram_free": 4096}}
+{"timestamp": 54.63332084955394, "type": "NEW_REQUEST", "details": {"id": 4, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 54.63332084955394, "type": "ASSIGNED", "details": "Task 4 -> SAT_USA"}
+{"timestamp": 59.63332084955394, "type": "TASK_COMPLETED", "details": {"task_id": 4, "sat_id": 102, "duration": 5.0}}
+{"timestamp": 60.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.4, "ram_free": 512}}
+{"timestamp": 60.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.9, "ram_free": 4096}}
+{"timestamp": 63.247615553404444, "type": "NEW_REQUEST", "details": {"id": 5, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 63.247615553404444, "type": "ASSIGNED", "details": "Task 5 -> SAT_BRAZIL"}
+{"timestamp": 63.32261555340445, "type": "TASK_COMPLETED", "details": {"task_id": 5, "sat_id": 101, "duration": 0.075}}
+{"timestamp": 70.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.3, "ram_free": 512}}
+{"timestamp": 70.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.8, "ram_free": 4096}}
+{"timestamp": 80.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.2, "ram_free": 512}}
+{"timestamp": 80.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.7, "ram_free": 4096}}
+{"timestamp": 84.21499496476874, "type": "NEW_REQUEST", "details": {"id": 6, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 84.21499496476874, "type": "ASSIGNED", "details": "Task 6 -> SAT_BRAZIL"}
+{"timestamp": 84.28999496476874, "type": "TASK_COMPLETED", "details": {"task_id": 6, "sat_id": 101, "duration": 0.075}}
+{"timestamp": 90.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.099999999999998, "ram_free": 512}}
+{"timestamp": 90.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.6, "ram_free": 4096}}
+{"timestamp": 93.63898238368934, "type": "NEW_REQUEST", "details": {"id": 7, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 93.63898238368934, "type": "ASSIGNED", "details": "Task 7 -> SAT_BRAZIL"}
+{"timestamp": 93.63898238368934, "type": "TASK_DROPPED", "details": "SAT_BRAZIL OOM for Task 7"}
+{"timestamp": 100.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 24.0, "ram_free": 512}}
+{"timestamp": 100.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.5, "ram_free": 4096}}
+{"timestamp": 110.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.9, "ram_free": 512}}
+{"timestamp": 110.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.4, "ram_free": 4096}}
+{"timestamp": 120.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.799999999999997, "ram_free": 512}}
+{"timestamp": 120.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.3, "ram_free": 4096}}
+{"timestamp": 123.06582556768294, "type": "NEW_REQUEST", "details": {"id": 8, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 123.06582556768294, "type": "SCHEDULER_REJECT", "details": "Task 8 not scheduled"}
+{"timestamp": 125.04813583247582, "type": "NEW_REQUEST", "details": {"id": 9, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 125.04813583247582, "type": "ASSIGNED", "details": "Task 9 -> SAT_BRAZIL"}
+{"timestamp": 125.29813583247582, "type": "TASK_COMPLETED", "details": {"task_id": 9, "sat_id": 101, "duration": 0.25}}
+{"timestamp": 130.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.7, "ram_free": 512}}
+{"timestamp": 130.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.2, "ram_free": 4096}}
+{"timestamp": 140.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.599999999999998, "ram_free": 512}}
+{"timestamp": 140.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.1, "ram_free": 4096}}
+{"timestamp": 149.55932117870563, "type": "NEW_REQUEST", "details": {"id": 10, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 149.55932117870563, "type": "ASSIGNED", "details": "Task 10 -> SAT_USA"}
+{"timestamp": 149.70932117870564, "type": "TASK_COMPLETED", "details": {"task_id": 10, "sat_id": 102, "duration": 0.15}}
+{"timestamp": 150.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.5, "ram_free": 512}}
+{"timestamp": 150.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 98.0, "ram_free": 4096}}
+{"timestamp": 160.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.400000000000002, "ram_free": 512}}
+{"timestamp": 160.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.89999999999999, "ram_free": 4096}}
+{"timestamp": 170.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.3, "ram_free": 512}}
+{"timestamp": 170.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.8, "ram_free": 4096}}
+{"timestamp": 180.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.200000000000003, "ram_free": 512}}
+{"timestamp": 180.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.7, "ram_free": 4096}}
+{"timestamp": 188.34072402613126, "type": "NEW_REQUEST", "details": {"id": 11, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 188.34072402613126, "type": "ASSIGNED", "details": "Task 11 -> SAT_USA"}
+{"timestamp": 188.49072402613126, "type": "TASK_COMPLETED", "details": {"task_id": 11, "sat_id": 102, "duration": 0.15}}
+{"timestamp": 190.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.1, "ram_free": 512}}
+{"timestamp": 190.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.6, "ram_free": 4096}}
+{"timestamp": 200.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 23.0, "ram_free": 512}}
+{"timestamp": 200.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.5, "ram_free": 4096}}
+{"timestamp": 210.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.900000000000002, "ram_free": 512}}
+{"timestamp": 210.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.39999999999999, "ram_free": 4096}}
+{"timestamp": 220.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.8, "ram_free": 512}}
+{"timestamp": 220.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.3, "ram_free": 4096}}
+{"timestamp": 230.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.7, "ram_free": 512}}
+{"timestamp": 230.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.2, "ram_free": 4096}}
+{"timestamp": 240.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.6, "ram_free": 512}}
+{"timestamp": 240.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.1, "ram_free": 4096}}
+{"timestamp": 250.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.5, "ram_free": 512}}
+{"timestamp": 250.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 97.0, "ram_free": 4096}}
+{"timestamp": 250.4780435018577, "type": "NEW_REQUEST", "details": {"id": 12, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 250.4780435018577, "type": "ASSIGNED", "details": "Task 12 -> SAT_USA"}
+{"timestamp": 250.9780435018577, "type": "TASK_COMPLETED", "details": {"task_id": 12, "sat_id": 102, "duration": 0.5}}
+{"timestamp": 257.356512247025, "type": "NEW_REQUEST", "details": {"id": 13, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 257.356512247025, "type": "ASSIGNED", "details": "Task 13 -> SAT_BRAZIL"}
+{"timestamp": 257.606512247025, "type": "TASK_COMPLETED", "details": {"task_id": 13, "sat_id": 101, "duration": 0.25}}
+{"timestamp": 260.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.400000000000002, "ram_free": 512}}
+{"timestamp": 260.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.89999999999999, "ram_free": 4096}}
+{"timestamp": 270.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.3, "ram_free": 512}}
+{"timestamp": 270.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.8, "ram_free": 4096}}
+{"timestamp": 280.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.2, "ram_free": 512}}
+{"timestamp": 280.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.7, "ram_free": 4096}}
+{"timestamp": 290.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.1, "ram_free": 512}}
+{"timestamp": 290.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.6, "ram_free": 4096}}
+{"timestamp": 298.8103440911116, "type": "NEW_REQUEST", "details": {"id": 14, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 298.8103440911116, "type": "ASSIGNED", "details": "Task 14 -> SAT_BRAZIL"}
+{"timestamp": 298.88534409111156, "type": "TASK_COMPLETED", "details": {"task_id": 14, "sat_id": 101, "duration": 0.075}}
+{"timestamp": 300.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 22.0, "ram_free": 512}}
+{"timestamp": 300.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.5, "ram_free": 4096}}
+{"timestamp": 310.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.9, "ram_free": 512}}
+{"timestamp": 310.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.39999999999999, "ram_free": 4096}}
+{"timestamp": 310.44679007911907, "type": "NEW_REQUEST", "details": {"id": 15, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 310.44679007911907, "type": "ASSIGNED", "details": "Task 15 -> SAT_USA"}
+{"timestamp": 315.44679007911907, "type": "TASK_COMPLETED", "details": {"task_id": 15, "sat_id": 102, "duration": 5.0}}
+{"timestamp": 320.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.8, "ram_free": 512}}
+{"timestamp": 320.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 96.05, "ram_free": 4096}}
+{"timestamp": 330.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.7, "ram_free": 512}}
+{"timestamp": 330.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.95, "ram_free": 4096}}
+{"timestamp": 340.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.6, "ram_free": 512}}
+{"timestamp": 340.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.85000000000001, "ram_free": 4096}}
+{"timestamp": 350.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.5, "ram_free": 512}}
+{"timestamp": 350.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.75, "ram_free": 4096}}
+{"timestamp": 360.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.4, "ram_free": 512}}
+{"timestamp": 360.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.65, "ram_free": 4096}}
+{"timestamp": 370.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.3, "ram_free": 512}}
+{"timestamp": 370.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.55, "ram_free": 4096}}
+{"timestamp": 372.7351128248682, "type": "NEW_REQUEST", "details": {"id": 16, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 372.7351128248682, "type": "SCHEDULER_REJECT", "details": "Task 16 not scheduled"}
+{"timestamp": 380.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.2, "ram_free": 512}}
+{"timestamp": 380.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.45, "ram_free": 4096}}
+{"timestamp": 390.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.099999999999998, "ram_free": 512}}
+{"timestamp": 390.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.35, "ram_free": 4096}}
+{"timestamp": 391.72537741456887, "type": "NEW_REQUEST", "details": {"id": 17, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 391.72537741456887, "type": "SCHEDULER_REJECT", "details": "Task 17 not scheduled"}
+{"timestamp": 400.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 21.0, "ram_free": 512}}
+{"timestamp": 400.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.25, "ram_free": 4096}}
+{"timestamp": 400.1629402840912, "type": "NEW_REQUEST", "details": {"id": 18, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 400.1629402840912, "type": "ASSIGNED", "details": "Task 18 -> SAT_BRAZIL"}
+{"timestamp": 400.1629402840912, "type": "TASK_DROPPED", "details": "SAT_BRAZIL OOM for Task 18"}
+{"timestamp": 410.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.9, "ram_free": 512}}
+{"timestamp": 410.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.15, "ram_free": 4096}}
+{"timestamp": 420.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.8, "ram_free": 512}}
+{"timestamp": 420.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 95.05, "ram_free": 4096}}
+{"timestamp": 426.4187796640377, "type": "NEW_REQUEST", "details": {"id": 19, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 426.4187796640377, "type": "SCHEDULER_REJECT", "details": "Task 19 not scheduled"}
+{"timestamp": 429.39403564600656, "type": "NEW_REQUEST", "details": {"id": 20, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 429.39403564600656, "type": "SCHEDULER_REJECT", "details": "Task 20 not scheduled"}
+{"timestamp": 430.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.7, "ram_free": 512}}
+{"timestamp": 430.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.95, "ram_free": 4096}}
+{"timestamp": 430.8290854188427, "type": "NEW_REQUEST", "details": {"id": 21, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 430.8290854188427, "type": "SCHEDULER_REJECT", "details": "Task 21 not scheduled"}
+{"timestamp": 440.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.599999999999998, "ram_free": 512}}
+{"timestamp": 440.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.85, "ram_free": 4096}}
+{"timestamp": 450.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.5, "ram_free": 512}}
+{"timestamp": 450.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.75, "ram_free": 4096}}
+{"timestamp": 460.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.4, "ram_free": 512}}
+{"timestamp": 460.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.65, "ram_free": 4096}}
+{"timestamp": 470.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.3, "ram_free": 512}}
+{"timestamp": 470.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.55, "ram_free": 4096}}
+{"timestamp": 480.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.200000000000003, "ram_free": 512}}
+{"timestamp": 480.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.45, "ram_free": 4096}}
+{"timestamp": 490.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.1, "ram_free": 512}}
+{"timestamp": 490.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.35, "ram_free": 4096}}
+{"timestamp": 490.73141182805057, "type": "NEW_REQUEST", "details": {"id": 22, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 490.73141182805057, "type": "SCHEDULER_REJECT", "details": "Task 22 not scheduled"}
+{"timestamp": 500.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 20.0, "ram_free": 512}}
+{"timestamp": 500.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.25, "ram_free": 4096}}
+{"timestamp": 510.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.900000000000002, "ram_free": 512}}
+{"timestamp": 510.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.15, "ram_free": 4096}}
+{"timestamp": 513.8576910620529, "type": "NEW_REQUEST", "details": {"id": 23, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 513.8576910620529, "type": "SCHEDULER_REJECT", "details": "Task 23 not scheduled"}
+{"timestamp": 520.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.8, "ram_free": 512}}
+{"timestamp": 520.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 94.05, "ram_free": 4096}}
+{"timestamp": 520.654404127548, "type": "NEW_REQUEST", "details": {"id": 24, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 520.654404127548, "type": "SCHEDULER_REJECT", "details": "Task 24 not scheduled"}
+{"timestamp": 523.3362702761415, "type": "NEW_REQUEST", "details": {"id": 25, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 523.3362702761415, "type": "SCHEDULER_REJECT", "details": "Task 25 not scheduled"}
+{"timestamp": 530.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.7, "ram_free": 512}}
+{"timestamp": 530.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.95, "ram_free": 4096}}
+{"timestamp": 540.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.6, "ram_free": 512}}
+{"timestamp": 540.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.85, "ram_free": 4096}}
+{"timestamp": 550.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.5, "ram_free": 512}}
+{"timestamp": 550.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.75, "ram_free": 4096}}
+{"timestamp": 555.9039062292825, "type": "NEW_REQUEST", "details": {"id": 26, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 555.9039062292825, "type": "SCHEDULER_REJECT", "details": "Task 26 not scheduled"}
+{"timestamp": 557.341513223277, "type": "NEW_REQUEST", "details": {"id": 27, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 557.341513223277, "type": "SCHEDULER_REJECT", "details": "Task 27 not scheduled"}
+{"timestamp": 560.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.400000000000002, "ram_free": 512}}
+{"timestamp": 560.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.65, "ram_free": 4096}}
+{"timestamp": 563.1684623192535, "type": "NEW_REQUEST", "details": {"id": 28, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 563.1684623192535, "type": "SCHEDULER_REJECT", "details": "Task 28 not scheduled"}
+{"timestamp": 570.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.3, "ram_free": 512}}
+{"timestamp": 570.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.55, "ram_free": 4096}}
+{"timestamp": 580.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.2, "ram_free": 512}}
+{"timestamp": 580.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.45, "ram_free": 4096}}
+{"timestamp": 580.2618428986374, "type": "NEW_REQUEST", "details": {"id": 29, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 580.2618428986374, "type": "SCHEDULER_REJECT", "details": "Task 29 not scheduled"}
+{"timestamp": 590.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.1, "ram_free": 512}}
+{"timestamp": 590.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.35, "ram_free": 4096}}
+{"timestamp": 599.6894529007794, "type": "NEW_REQUEST", "details": {"id": 30, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 599.6894529007794, "type": "SCHEDULER_REJECT", "details": "Task 30 not scheduled"}
+{"timestamp": 600.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 19.0, "ram_free": 512}}
+{"timestamp": 600.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.25, "ram_free": 4096}}
+{"timestamp": 606.683193814516, "type": "NEW_REQUEST", "details": {"id": 31, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 606.683193814516, "type": "SCHEDULER_REJECT", "details": "Task 31 not scheduled"}
+{"timestamp": 610.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.9, "ram_free": 512}}
+{"timestamp": 610.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.15, "ram_free": 4096}}
+{"timestamp": 613.7939270150131, "type": "NEW_REQUEST", "details": {"id": 32, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 613.7939270150131, "type": "SCHEDULER_REJECT", "details": "Task 32 not scheduled"}
+{"timestamp": 620.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.8, "ram_free": 512}}
+{"timestamp": 620.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 93.05, "ram_free": 4096}}
+{"timestamp": 622.1163807526518, "type": "NEW_REQUEST", "details": {"id": 33, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 622.1163807526518, "type": "SCHEDULER_REJECT", "details": "Task 33 not scheduled"}
+{"timestamp": 630.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.7, "ram_free": 512}}
+{"timestamp": 630.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.95, "ram_free": 4096}}
+{"timestamp": 640.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.6, "ram_free": 512}}
+{"timestamp": 640.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.85, "ram_free": 4096}}
+{"timestamp": 644.2220460915545, "type": "NEW_REQUEST", "details": {"id": 34, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 644.2220460915545, "type": "SCHEDULER_REJECT", "details": "Task 34 not scheduled"}
+{"timestamp": 644.6457975635246, "type": "NEW_REQUEST", "details": {"id": 35, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 644.6457975635246, "type": "SCHEDULER_REJECT", "details": "Task 35 not scheduled"}
+{"timestamp": 647.2940412500783, "type": "NEW_REQUEST", "details": {"id": 36, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 647.2940412500783, "type": "SCHEDULER_REJECT", "details": "Task 36 not scheduled"}
+{"timestamp": 650.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.5, "ram_free": 512}}
+{"timestamp": 650.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.75, "ram_free": 4096}}
+{"timestamp": 650.3957870769319, "type": "NEW_REQUEST", "details": {"id": 37, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 650.3957870769319, "type": "SCHEDULER_REJECT", "details": "Task 37 not scheduled"}
+{"timestamp": 660.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.4, "ram_free": 512}}
+{"timestamp": 660.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.65, "ram_free": 4096}}
+{"timestamp": 670.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.3, "ram_free": 512}}
+{"timestamp": 670.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.55, "ram_free": 4096}}
+{"timestamp": 680.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.2, "ram_free": 512}}
+{"timestamp": 680.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.45, "ram_free": 4096}}
+{"timestamp": 690.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.099999999999998, "ram_free": 512}}
+{"timestamp": 690.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.35, "ram_free": 4096}}
+{"timestamp": 700.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 18.0, "ram_free": 512}}
+{"timestamp": 700.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.25, "ram_free": 4096}}
+{"timestamp": 710.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.9, "ram_free": 512}}
+{"timestamp": 710.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.15, "ram_free": 4096}}
+{"timestamp": 712.7561422512043, "type": "NEW_REQUEST", "details": {"id": 38, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 712.7561422512043, "type": "SCHEDULER_REJECT", "details": "Task 38 not scheduled"}
+{"timestamp": 720.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.8, "ram_free": 512}}
+{"timestamp": 720.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 92.05, "ram_free": 4096}}
+{"timestamp": 730.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.7, "ram_free": 512}}
+{"timestamp": 730.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.95, "ram_free": 4096}}
+{"timestamp": 740.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.599999999999998, "ram_free": 512}}
+{"timestamp": 740.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.85, "ram_free": 4096}}
+{"timestamp": 742.5265268987497, "type": "NEW_REQUEST", "details": {"id": 39, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 742.5265268987497, "type": "SCHEDULER_REJECT", "details": "Task 39 not scheduled"}
+{"timestamp": 742.6863495835395, "type": "NEW_REQUEST", "details": {"id": 40, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 742.6863495835395, "type": "SCHEDULER_REJECT", "details": "Task 40 not scheduled"}
+{"timestamp": 750.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.5, "ram_free": 512}}
+{"timestamp": 750.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.75, "ram_free": 4096}}
+{"timestamp": 760.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.4, "ram_free": 512}}
+{"timestamp": 760.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.64999999999999, "ram_free": 4096}}
+{"timestamp": 765.7115852027201, "type": "NEW_REQUEST", "details": {"id": 41, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 765.7115852027201, "type": "SCHEDULER_REJECT", "details": "Task 41 not scheduled"}
+{"timestamp": 770.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.299999999999997, "ram_free": 512}}
+{"timestamp": 770.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.55, "ram_free": 4096}}
+{"timestamp": 780.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.2, "ram_free": 512}}
+{"timestamp": 780.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.45, "ram_free": 4096}}
+{"timestamp": 790.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.1, "ram_free": 512}}
+{"timestamp": 790.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.35, "ram_free": 4096}}
+{"timestamp": 800.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 17.0, "ram_free": 512}}
+{"timestamp": 800.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.25, "ram_free": 4096}}
+{"timestamp": 809.6762040121955, "type": "NEW_REQUEST", "details": {"id": 42, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 809.6762040121955, "type": "SCHEDULER_REJECT", "details": "Task 42 not scheduled"}
+{"timestamp": 810.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.900000000000002, "ram_free": 512}}
+{"timestamp": 810.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.14999999999999, "ram_free": 4096}}
+{"timestamp": 814.1875627813156, "type": "NEW_REQUEST", "details": {"id": 43, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 814.1875627813156, "type": "SCHEDULER_REJECT", "details": "Task 43 not scheduled"}
+{"timestamp": 817.4955700812512, "type": "NEW_REQUEST", "details": {"id": 44, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 817.4955700812512, "type": "ASSIGNED", "details": "Task 44 -> SAT_USA"}
+{"timestamp": 817.9955700812512, "type": "TASK_COMPLETED", "details": {"task_id": 44, "sat_id": 102, "duration": 0.5}}
+{"timestamp": 820.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.8, "ram_free": 512}}
+{"timestamp": 820.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 91.05, "ram_free": 4096}}
+{"timestamp": 825.4299442324276, "type": "NEW_REQUEST", "details": {"id": 45, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 825.4299442324276, "type": "SCHEDULER_REJECT", "details": "Task 45 not scheduled"}
+{"timestamp": 830.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.7, "ram_free": 512}}
+{"timestamp": 830.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.95, "ram_free": 4096}}
+{"timestamp": 840.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.6, "ram_free": 512}}
+{"timestamp": 840.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.85, "ram_free": 4096}}
+{"timestamp": 850.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.5, "ram_free": 512}}
+{"timestamp": 850.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.75, "ram_free": 4096}}
+{"timestamp": 852.2337555816515, "type": "NEW_REQUEST", "details": {"id": 46, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 852.2337555816515, "type": "SCHEDULER_REJECT", "details": "Task 46 not scheduled"}
+{"timestamp": 860.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.400000000000002, "ram_free": 512}}
+{"timestamp": 860.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.64999999999999, "ram_free": 4096}}
+{"timestamp": 870.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.3, "ram_free": 512}}
+{"timestamp": 870.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.55, "ram_free": 4096}}
+{"timestamp": 880.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.2, "ram_free": 512}}
+{"timestamp": 880.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.45, "ram_free": 4096}}
+{"timestamp": 880.6706482214787, "type": "NEW_REQUEST", "details": {"id": 47, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 880.6706482214787, "type": "SCHEDULER_REJECT", "details": "Task 47 not scheduled"}
+{"timestamp": 890.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.1, "ram_free": 512}}
+{"timestamp": 890.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.35, "ram_free": 4096}}
+{"timestamp": 898.2715815731061, "type": "NEW_REQUEST", "details": {"id": 48, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 898.2715815731061, "type": "SCHEDULER_REJECT", "details": "Task 48 not scheduled"}
+{"timestamp": 900.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 16.0, "ram_free": 512}}
+{"timestamp": 900.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.25, "ram_free": 4096}}
+{"timestamp": 901.8713157547633, "type": "NEW_REQUEST", "details": {"id": 49, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 901.8713157547633, "type": "SCHEDULER_REJECT", "details": "Task 49 not scheduled"}
+{"timestamp": 910.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.9, "ram_free": 512}}
+{"timestamp": 910.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.14999999999999, "ram_free": 4096}}
+{"timestamp": 917.2367534521512, "type": "NEW_REQUEST", "details": {"id": 50, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 917.2367534521512, "type": "SCHEDULER_REJECT", "details": "Task 50 not scheduled"}
+{"timestamp": 920.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.8, "ram_free": 512}}
+{"timestamp": 920.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 90.05, "ram_free": 4096}}
+{"timestamp": 930.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.7, "ram_free": 512}}
+{"timestamp": 930.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.95, "ram_free": 4096}}
+{"timestamp": 940.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.6, "ram_free": 512}}
+{"timestamp": 940.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.85, "ram_free": 4096}}
+{"timestamp": 950.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.5, "ram_free": 512}}
+{"timestamp": 950.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.75, "ram_free": 4096}}
+{"timestamp": 960.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.4, "ram_free": 512}}
+{"timestamp": 960.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.64999999999999, "ram_free": 4096}}
+{"timestamp": 968.3758935658334, "type": "NEW_REQUEST", "details": {"id": 51, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 968.3758935658334, "type": "SCHEDULER_REJECT", "details": "Task 51 not scheduled"}
+{"timestamp": 970.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.299999999999999, "ram_free": 512}}
+{"timestamp": 970.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.55, "ram_free": 4096}}
+{"timestamp": 974.964869128102, "type": "NEW_REQUEST", "details": {"id": 52, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 974.964869128102, "type": "SCHEDULER_REJECT", "details": "Task 52 not scheduled"}
+{"timestamp": 980.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.2, "ram_free": 512}}
+{"timestamp": 980.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.45, "ram_free": 4096}}
+{"timestamp": 990.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.1, "ram_free": 512}}
+{"timestamp": 990.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.35, "ram_free": 4096}}
+{"timestamp": 993.3129421710701, "type": "NEW_REQUEST", "details": {"id": 53, "type": "GOV_DATA", "region": "BRAZIL", "data_mb": 200}}
+{"timestamp": 993.3129421710701, "type": "SCHEDULER_REJECT", "details": "Task 53 not scheduled"}
+{"timestamp": 997.2307648854367, "type": "NEW_REQUEST", "details": {"id": 54, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 997.2307648854367, "type": "SCHEDULER_REJECT", "details": "Task 54 not scheduled"}
+{"timestamp": 1000.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 15.0, "ram_free": 512}}
+{"timestamp": 1000.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.25, "ram_free": 4096}}
+{"timestamp": 1000.8674272932968, "type": "NEW_REQUEST", "details": {"id": 55, "type": "IOT_DATA", "region": "BRAZIL", "data_mb": 5}}
+{"timestamp": 1000.8674272932968, "type": "SCHEDULER_REJECT", "details": "Task 55 not scheduled"}
+{"timestamp": 1004.5457331787895, "type": "NEW_REQUEST", "details": {"id": 56, "type": "IMG_PROC", "region": "BRAZIL", "data_mb": 1000}}
+{"timestamp": 1004.5457331787895, "type": "SCHEDULER_REJECT", "details": "Task 56 not scheduled"}
+{"timestamp": 1010.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.899999999999999, "ram_free": 512}}
+{"timestamp": 1010.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.14999999999999, "ram_free": 4096}}
+{"timestamp": 1020.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.799999999999999, "ram_free": 512}}
+{"timestamp": 1020.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 89.05, "ram_free": 4096}}
+{"timestamp": 1030.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.7, "ram_free": 512}}
+{"timestamp": 1030.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.94999999999999, "ram_free": 4096}}
+{"timestamp": 1040.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.6, "ram_free": 512}}
+{"timestamp": 1040.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.85, "ram_free": 4096}}
+{"timestamp": 1050.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.499999999999998, "ram_free": 512}}
+{"timestamp": 1050.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.75, "ram_free": 4096}}
+{"timestamp": 1060.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.399999999999999, "ram_free": 512}}
+{"timestamp": 1060.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.64999999999999, "ram_free": 4096}}
+{"timestamp": 1062.3019277065712, "type": "NEW_REQUEST", "details": {"id": 57, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 1062.3019277065712, "type": "SCHEDULER_REJECT", "details": "Task 57 not scheduled"}
+{"timestamp": 1065.8668981420653, "type": "NEW_REQUEST", "details": {"id": 58, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 1065.8668981420653, "type": "SCHEDULER_REJECT", "details": "Task 58 not scheduled"}
+{"timestamp": 1070.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.299999999999999, "ram_free": 512}}
+{"timestamp": 1070.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.55, "ram_free": 4096}}
+{"timestamp": 1071.536488241224, "type": "NEW_REQUEST", "details": {"id": 59, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 1071.536488241224, "type": "SCHEDULER_REJECT", "details": "Task 59 not scheduled"}
+{"timestamp": 1080.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.2, "ram_free": 512}}
+{"timestamp": 1080.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.44999999999999, "ram_free": 4096}}
+{"timestamp": 1090.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.099999999999998, "ram_free": 512}}
+{"timestamp": 1090.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.35, "ram_free": 4096}}
+{"timestamp": 1092.197389615854, "type": "NEW_REQUEST", "details": {"id": 60, "type": "IMG_PROC", "region": "USA", "data_mb": 1000}}
+{"timestamp": 1092.197389615854, "type": "SCHEDULER_REJECT", "details": "Task 60 not scheduled"}
+{"timestamp": 1100.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 14.000000000000002, "ram_free": 512}}
+{"timestamp": 1100.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.25, "ram_free": 4096}}
+{"timestamp": 1106.6209368606073, "type": "NEW_REQUEST", "details": {"id": 61, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 1106.6209368606073, "type": "SCHEDULER_REJECT", "details": "Task 61 not scheduled"}
+{"timestamp": 1110.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.900000000000002, "ram_free": 512}}
+{"timestamp": 1110.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.14999999999999, "ram_free": 4096}}
+{"timestamp": 1120.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.8, "ram_free": 512}}
+{"timestamp": 1120.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 88.05, "ram_free": 4096}}
+{"timestamp": 1121.3593308548689, "type": "NEW_REQUEST", "details": {"id": 62, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 1121.3593308548689, "type": "SCHEDULER_REJECT", "details": "Task 62 not scheduled"}
+{"timestamp": 1130.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.700000000000001, "ram_free": 512}}
+{"timestamp": 1130.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.94999999999999, "ram_free": 4096}}
+{"timestamp": 1132.6283103433582, "type": "NEW_REQUEST", "details": {"id": 63, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 1132.6283103433582, "type": "SCHEDULER_REJECT", "details": "Task 63 not scheduled"}
+{"timestamp": 1140.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.600000000000001, "ram_free": 512}}
+{"timestamp": 1140.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.85, "ram_free": 4096}}
+{"timestamp": 1147.9424877844992, "type": "NEW_REQUEST", "details": {"id": 64, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 1147.9424877844992, "type": "SCHEDULER_REJECT", "details": "Task 64 not scheduled"}
+{"timestamp": 1150.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.5, "ram_free": 512}}
+{"timestamp": 1150.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.75, "ram_free": 4096}}
+{"timestamp": 1160.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.4, "ram_free": 512}}
+{"timestamp": 1160.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.64999999999999, "ram_free": 4096}}
+{"timestamp": 1169.3610317596647, "type": "NEW_REQUEST", "details": {"id": 65, "type": "GOV_DATA", "region": "USA", "data_mb": 200}}
+{"timestamp": 1169.3610317596647, "type": "SCHEDULER_REJECT", "details": "Task 65 not scheduled"}
+{"timestamp": 1170.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.3, "ram_free": 512}}
+{"timestamp": 1170.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.55, "ram_free": 4096}}
+{"timestamp": 1171.6713611139123, "type": "NEW_REQUEST", "details": {"id": 66, "type": "IOT_DATA", "region": "USA", "data_mb": 5}}
+{"timestamp": 1171.6713611139123, "type": "SCHEDULER_REJECT", "details": "Task 66 not scheduled"}
+{"timestamp": 1180.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.200000000000001, "ram_free": 512}}
+{"timestamp": 1180.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.45, "ram_free": 4096}}
+{"timestamp": 1190.0, "type": "TELEMETRY", "details": {"sat_id": 101, "battery": 13.100000000000001, "ram_free": 512}}
+{"timestamp": 1190.0, "type": "TELEMETRY", "details": {"sat_id": 102, "battery": 87.35000000000001, "ram_free": 4096}}
