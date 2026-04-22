@@ -19,7 +19,6 @@ import time
 import numpy as np
 
 # --- MEC INTEGRATION ---
-from src.ai_adapter import GeminiBrain
 from src.ai_logic import MECOrchestrator
 # -----------------------
 
@@ -240,8 +239,8 @@ class ManagerParallel(IManager):
 
         # --- MEC INJECTION START ---
         print(">>> [MEC] ManagerParallel Initialized. Setting up AI...")
-        self.ai_brain = GeminiBrain()
-        self.mec_orchestrator = MECOrchestrator(self.ai_brain)
+        # Como o MECOrchestrator agora cria o seu próprio motor, só precisas disto:
+        self.mec_orchestrator = MECOrchestrator()
         
         # Extrai nós das topologias para configurar
         all_nodes = []
@@ -298,9 +297,10 @@ class ManagerParallel(IManager):
 
             self.__currentStep += 1 
         
-        # --- MEC REPORT (NEW) ---
+        # --- MEC REPORT ---
         if hasattr(self, 'mec_orchestrator'):
             self.mec_orchestrator.print_stats()
-        # ------------------------
+            self.mec_orchestrator.save_metrics()
+        # ------------------
 
         self.__stoppingCondition.set()

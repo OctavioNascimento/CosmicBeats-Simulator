@@ -2,7 +2,7 @@ aiofiles==24.1.0
 annotated-doc==0.0.3
 annotated-types==0.7.0
 anyio==4.11.0
-astropy==7.1.1
+astropy
 astropy-iers-data==0.2025.11.3.0.38.37
 brotli==1.2.0
 cachetools==6.2.2
@@ -43,7 +43,7 @@ markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 narwhals==2.10.2
-numpy==2.3.4
+numpy
 orjson==3.11.4
 packaging==25.0
 pandas==2.3.3
@@ -71,7 +71,7 @@ rich==14.2.0
 rsa==4.9.1
 ruff==0.14.4
 safehttpx==0.1.7
-scipy==1.16.3
+scipy
 semantic-version==2.10.0
 sgp4==2.25
 shellingham==1.5.4

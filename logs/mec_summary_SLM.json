@@ -1,0 +1,14 @@
+{
+  "engine": "SLM",
+  "total_tasks": 69,
+  "success_count": 16,
+  "success_rate": 0.2319,
+  "drop_count": 53,
+  "drop_rate": 0.7681,
+  "avg_latency_ms": 3749.884,
+  "total_joules": 6.9,
+  "joules_per_decision": 0.1,
+  "anomaly_task_count": 8,
+  "semantic_compliance_rate": 0.9275,
+  "anomaly_compliance_rate": 0.375
+}

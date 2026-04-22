@@ -1,189 +1,94 @@
-# llm_scheduler.py
-'''
-@desc
-    This module implements the LLM-based scheduler.
-    It connects to a Generative AI API (like Gemini) to make
-    intelligent scheduling decisions based on the current
-    simulation state.
-    
-    This module is designed to be swapped in to replace the
-    BaselineScheduler.
-'''
 import os
-import re
-import google.generativeai as genai
+import requests
+import json
+import urllib3
+import time
+from dotenv import load_dotenv
 
-# Import type hints
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    from src.nodes.satellite_mec import SatelliteMEC, Task
-    from src.simlogging.ilogger import ILogger
-    from src.utils import Time
-
-# --- IMPORTANT: SET YOUR API KEY ---
-# Set this in your system's environment variables
-# (e.g., export GEMINI_API_KEY="your_key_here")
+load_dotenv()
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 API_KEY = os.environ.get("GEMINI_API_KEY")
 
 class LLMScheduler:
-    '''
-    @desc
-        A scheduler that uses a Large Language Model (LLM)
-        to make real-time scheduling decisions.
-    '''
-    
-    def __init__(self, satellites: 'list[SatelliteMEC]', logger: 'ILogger'):
-        '''
-        @param[in] satellites
-            A list of all SatelliteMEC node objects in the simulation.
-        @param[in] logger
-            The simulation logger instance.
-        '''
-        self.satellites = satellites
-        self.logger = logger
-        
+    def __init__(self):
         if not API_KEY:
-            self.logger.write_Log("GEMINI_API_KEY environment variable not set. LLMScheduler will not work.", "LOGERROR", Time())
-            raise ValueError("GEMINI_API_KEY not found in environment variables.")
-            
-        # Configure the Gemini client
-        genai.configure(api_key=API_KEY)
+            print("CRITICAL: GEMINI_API_KEY not found in .env!")
+        else:
+            print(">>> [ENGINE] LLM Scheduler Initialized (gemini-3.1-flash-lite-preview)")
+
+    def _call_api(self, prompt):
+        if not API_KEY: return None
         
-        # --- Configure the Generative Model ---
-        # You can adjust generation_config as needed for your project
-        generation_config = {
-            "temperature": 0.2, # Low temperature for more deterministic, less "creative" answers
-            "top_p": 1,
-            "top_k": 1,
-            "max_output_tokens": 50, # We only need a few tokens for the ID
+        model = "gemini-3.1-flash-lite-preview"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={API_KEY}"
+        headers = {'Content-Type': 'application/json'}
+        data = { 
+            "contents": [{"parts": [{"text": prompt}]}], 
+            "generationConfig": {"temperature": 0.0, "responseMimeType": "application/json"} 
         }
-        self.model = genai.GenerativeModel(
-            model_name="gemini-pro", # Use a fast, capable model
-            generation_config=generation_config
-        )
-        
-        self.logger.write_Log("LLMScheduler initialized and Gemini client configured.", "LOGINFO", Time())
 
-    def _state_to_prompt(self, task: 'Task', current_time: 'Time') -> str:
-        '''
-        @desc
-            (Step 3.1) Converts the current simulation state into a 
-            natural language prompt for the LLM.
-        '''
+        for attempt in range(3):
+            try:
+                t0 = time.perf_counter()
+                response = requests.post(url, headers=headers, json=data, verify=False, timeout=15)
+                latencia_ms = (time.perf_counter() - t0) * 1000
+
+                if response.status_code == 200:
+                    print(f"[LLM] Resposta em {latencia_ms:.0f}ms")
+                    return response.json()['candidates'][0]['content']['parts'][0]['text']
+
+                elif response.status_code == 429:
+                    erro_detalhado = response.json().get('error', {}).get('message', 'Sem detalhes')
+                    print(f"[LLM Rate Limit] Tentativa {attempt+1}/3: {erro_detalhado}")
+                    continue
+
+                else:
+                    print(f"[LLM Error] HTTP {response.status_code} - {response.text}")
+                    break
+
+            except Exception as e:
+                print(f"[LLM Connection Error] Tentativa {attempt+1}/3: {e}")
+                continue
+
+        return None
+
+    def decide(self, task_dict, fleet, safe_mode_threshold=20.0):
+        prompt = "You are a satellite network orchestrator. Output valid JSON only.\n"
         
-        prompt = "You are an expert resource allocator for a LEO satellite network.\n"
-        prompt += f"Your goal is to minimize latency by selecting the best satellite to process a new task.\n"
-        prompt += f"Current simulation time: {current_time.to_str()}.\n\n"
-        prompt += "--- NEW TASK ---\n"
-        prompt += f"Task ID: {task.id}\n"
-        prompt += f"Computational Load: {task.mips_required} MIPS\n\n"
+        t_id = task_dict.get('id')
+        t_reg = task_dict.get('region')
+        t_ram = task_dict.get('ram')
         
-        prompt += "--- SATELLITE STATUS ---\n"
-        for sat in self.satellites:
-            load_percent = sat.get_current_load_percentage()
-            queue_length = len(sat.cpu_resource.queue)
+        prompt += f"TASK: ID {t_id} | Region {t_reg} | RAM Required: {t_ram} MB\n"
+        prompt += "AVAILABLE SATELLITES:\n"
+        
+        valid_exists = False
+        
+        # OTIMIZAÇÃO DO PROMPT: Pré-filtro para não gastar tokens com satélites inúteis
+        for sat in fleet:
+            # Ignora satélites mortos ou de outras regiões (poupando Tokens/TPM)
+            if not sat.get('alive', True): continue
+            if sat.get('region') != t_reg: continue 
             
-            prompt += f"Satellite ID: {sat.nodeID}\n"
-            prompt += f"  - CPU Capacity: {sat.cpu_processing_rate} MIPS/sec\n"
-            prompt += f"  - Current CPU Load: {load_percent:.1f}%\n"
-            prompt += f"  - Tasks in Queue: {queue_length}\n"
-        
-        prompt += "\n--- DECISION ---\n"
-        prompt += "Based on this data, which satellite (ID) should process the new task?\n"
-        prompt += "Respond with the numerical Satellite ID only."
-        
-        return prompt
-
-    def _call_gemini_api(self, prompt: str) -> str:
-        '''
-        @desc
-            (Step 3.2) Sends the prompt to the Gemini API and returns the
-            raw text response.
-        '''
-        try:
-            self.logger.write_Log(f"Sending prompt to Gemini API...", "LOGDEBUG", Time())
-            # self.logger.write_Log(f"PROMPT:\n{prompt}", "LOGDEBUG", Time()) # Uncomment for full prompt logging
+            valid_exists = True
+            safe_str = "SAFE_MODE" if sat.get('safe_mode', False) else "ACTIVE"
+            prompt += f"SAT {sat.get('id')}: Region {sat.get('region')} | Bat {sat.get('battery', 0):.1f}% ({safe_str}) | RAM {sat.get('ram_free')}MB\n"
             
-            response = self.model.generate_content(prompt)
-            response_text = response.text.strip()
-            
-            self.logger.write_Log(f"LLM raw response: '{response_text}'", "LOGDEBUG", Time())
-            return response_text
-            
-        except Exception as e:
-            self.logger.write_Log(f"Gemini API call failed: {e}", "LOGERROR", Time())
-            return None  # Return None to signal a failure
-
-    def _response_to_action(self, response_text: str) -> 'SatelliteMEC':
-        '''
-        @desc
-            (Step 3.3) Parses the LLM's text response and converts it
-            into a valid simulation action (a SatelliteMEC object).
-            Includes fallback logic.
-        '''
+        if not valid_exists: 
+            # Se o Python já viu que não há satélites válidos, nem chama a API!
+            return None
         
-        # 1. Handle API Failure
-        if response_text is None:
-            self.logger.write_Log("API response was None. Using fallback logic.", "LOGWARN", Time())
-            return self._fallback_logic()
-
-        # 2. Parse the text response
-        try:
-            # Use regex to find the first sequence of digits in the response
-            match = re.search(r'\d+', response_text)
-            
-            if match:
-                chosen_id = int(match.group(0))
-                
-                # Find the satellite object that matches the chosen ID
-                for sat in self.satellites:
-                    if sat.nodeID == chosen_id:
-                        self.logger.write_Log(f"LLM parsed action: Assign to {chosen_id}", "LOGINFO", Time())
-                        return sat
-                
-                # If ID is valid number but doesn't exist
-                self.logger.write_Log(f"LLM returned non-existent satellite ID: {chosen_id}. Using fallback.", "LOGWARN", Time())
-                return self._fallback_logic()
-            
-            else:
-                # If no number was found in the response
-                self.logger.write_Log(f"LLM response '{response_text}' contained no valid ID. Using fallback.", "LOGWARN", Time())
-                return self._fallback_logic()
-
-        except Exception as e:
-            self.logger.write_Log(f"Error parsing LLM response '{response_text}': {e}. Using fallback.", "LOGWARN", Time())
-            return self._fallback_logic()
-
-    def _fallback_logic(self) -> 'SatelliteMEC':
-        '''
-        @desc
-            A robust fallback in case the LLM API fails or
-            returns an invalid response. Defaults to the baseline logic.
-        '''
-        self.logger.write_Log("Executing fallback: Assigning to shortest queue.", "LOGWARN", Time())
-        chosen_satellite = min(self.satellites, key=lambda sat: len(sat.cpu_resource.queue))
-        return chosen_satellite
-
-    def schedule_task(self, task: 'Task', current_time: 'Time') -> 'SatelliteMEC':
-        '''
-        @desc
-            The main decision-making method. Orchestrates the
-            prompt -> API -> parse workflow.
-        @param[in] task
-            The task object to be scheduled.
-        @param[in] current_time
-            The current simulation timestamp.
-        @return
-            The chosen SatelliteMEC object to process the task.
-        '''
+        prompt += f"\nRULES:\n"
+        prompt += f"1. Match Region strictly.\n"
+        prompt += f"2. Battery > {safe_mode_threshold}%.\n"
+        prompt += f"3. RAM >= Task RAM.\n"
+        prompt += "Output: {\"satellite_id\": <id>} or {\"satellite_id\": null}."
         
-        # 1. Create prompt from current state
-        prompt = self._state_to_prompt(task, current_time)
+        resp = self._call_api(prompt)
         
-        # 2. Call LLM
-        response_text = self._call_gemini_api(prompt)
-        
-        # 3. Parse response and return the chosen satellite
-        selected_satellite = self._response_to_action(response_text)
-        
-        return selected_satellite
+        if resp:
+            try:
+                return json.loads(resp).get("satellite_id")
+            except:
+                pass
+        return None

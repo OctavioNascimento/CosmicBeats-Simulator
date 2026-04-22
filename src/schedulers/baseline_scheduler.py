@@ -1,63 +1,24 @@
-# baseline_scheduler.py
-'''
-@desc
-    This module implements a simple, non-AI baseline scheduler.
-    It uses a common heuristic (shortest processing queue) to make
-    scheduling decisions.
-    
-    This serves as the benchmark to compare against the LLMScheduler.
-'''
-
-# Import type hints
-from typing import TYPE_CHECKING
-if TYPE_CHECKING:
-    from src.nodes.satellite_mec import SatelliteMEC, Task
-    from src.simlogging.ilogger import ILogger
-    from src.utils import Time
-
 class BaselineScheduler:
-    '''
-    @desc
-        A simple scheduler that assigns new tasks to the 
-        satellite with the shortest active processing queue.
-    '''
-    
-    def __init__(self, satellites: 'list[SatelliteMEC]', logger: 'ILogger'):
-        '''
-        @param[in] satellites
-            A list of all SatelliteMEC node objects in the simulation.
-        @param[in] logger
-            The simulation logger instance.
-        '''
-        self.satellites = satellites
-        self.logger = logger
-        self.logger.write_Log("BaselineScheduler initialized.", "LOGINFO", Time())
+    def __init__(self):
+        print(">>> [ENGINE] Baseline Scheduler Initialized (Filtered Shortest Queue/Battery)")
 
-    def schedule_task(self, task: 'Task', current_time: 'Time') -> 'SatelliteMEC':
-        '''
-        @desc
-            The main decision-making method.
-        @param[in] task
-            The task object to be scheduled.
-        @param[in] current_time
-            The current simulation timestamp.
-        @return
-            The chosen SatelliteMEC object to process the task.
-        '''
+    def decide(self, task_dict, fleet, safe_mode_threshold=20.0):
+        candidatos_validos = []
+
+        # 1. FILTRO RÍGIDO (As regras do teu TCC)
+        for sat in fleet:
+            if not sat.get('alive', True): continue
+            if sat.get('region') != task_dict.get('region'): continue
+            if sat.get('battery', 0) <= safe_mode_threshold: continue
+            if sat.get('ram_free', 0) < task_dict.get('ram', 0): continue
+            
+            candidatos_validos.append(sat)
+
+        if not candidatos_validos:
+            return None # Ninguém cumpriu as regras (Vai para "No Route")
+
+        # 2. HEURÍSTICA DE ESCOLHA (Energy-Aware com desempate em RAM)
+        # Retorna uma tupla (bateria, ram_free). O Python avalia o primeiro e desempata com o segundo!
+        best_sat = max(candidatos_validos, key=lambda s: (s.get('battery', 0), s.get('ram_free', 0)))
         
-        if not self.satellites:
-            self.logger.write_Log("Scheduler has no satellites to schedule to!", "LOGERROR", current_time)
-            return None
-
-        # --- HEURISTIC LOGIC ---
-        # Find the satellite with the minimum number of tasks currently in its CPU queue.
-        # This is a "shortest queue" or "least busy" strategy.
-        try:
-            chosen_satellite = min(self.satellites, key=lambda sat: len(sat.cpu_resource.queue))
-        except Exception as e:
-            self.logger.write_Log(f"Error finding min queue satellite: {e}. Defaulting to first sat.", "LOGWARN", current_time)
-            chosen_satellite = self.satellites[0]
-        # ---------------------
-
-        self.logger.write_Log(f"BaselineScheduler: Assigning Task {task.id} to Satellite {chosen_satellite.nodeID}", "LOGINFO", current_time)
-        return chosen_satellite
+        return best_sat.get('id')
