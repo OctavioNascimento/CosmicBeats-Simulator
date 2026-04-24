@@ -36,8 +36,8 @@ ROUTING RULES (apply in order, use semantic reasoning on the anomaly field):
      route exclusively to a satellite in the required country's region. Drop if none available.
   3. Critical hardware failure that makes the task unexecutable (e.g. a sensor, camera, or component
      required to process this task is broken): drop the task entirely.
-  4. No anomaly or unknown anomaly: route to any alive satellite in the task's region with sufficient RAM.
-     Prefer the satellite with the most RAM free.
+  4. No anomaly or unknown anomaly: route to any satellite in the task's region with link_quality >= 20%
+     and sufficient RAM. Prefer the satellite with the highest link_quality.
   5. Use action='process' when routing to the task's own region, action='route' when forwarding to a
      different region, action='drop' only when no compliant satellite exists or a fatal hardware failure applies.
 
@@ -92,8 +92,8 @@ class SLMScheduler:
 
     def _build_prompt(self, task_dict, fleet):
         fleet_lines = "\n".join(
-            f"  SAT {s['id']} | region={s['region']} | battery={s['battery']:.1f}%"
-            f" | ram_free={s['ram_free']} MB | alive={s['alive']}"
+            f"  SAT {s['id']} | region={s['region']} | link_quality={s['link_quality']:.0f}%"
+            f" | ram_free={s['ram_free']} MB"
             for s in fleet
         )
         return _PROMPT_TEMPLATE.format(
@@ -169,7 +169,7 @@ class SLMScheduler:
         if target_region:
             for s in fleet:
                 if (s.get("region") == target_region
-                        and s.get("alive")
+                        and s.get("link_quality", 0) >= 20.0
                         and s.get("ram_free", 0) >= task_dict.get("ram", 0)):
                     return s.get("id")
         return None

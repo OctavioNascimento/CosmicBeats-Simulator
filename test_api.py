@@ -1,10 +1,10 @@
 import os
 import requests
 import urllib3
+from dotenv import load_dotenv
 
-# Desabilita avisos de segurança (para o Netskope não atrapalhar o log)
+load_dotenv()
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
 API_KEY = os.environ.get("GEMINI_API_KEY")
 
 def test_connectivity():
@@ -78,7 +78,7 @@ if __name__ == "__main__":
         # Preferência por gemini-1.5-flash ou gemini-pro
         chosen = None
         for m in models:
-            if "gemini-1.5-flash" in m:
+            if "gemini-2.0-flash" in m:
                 chosen = m
                 break
         if not chosen and len(models) > 0:

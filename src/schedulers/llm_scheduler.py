@@ -1,94 +1,165 @@
+import collections
 import os
-import requests
 import json
-import urllib3
+import re
 import time
+import requests
+import urllib3
 from dotenv import load_dotenv
 
 load_dotenv()
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-API_KEY = os.environ.get("GEMINI_API_KEY")
+
+API_KEY   = os.environ.get("GEMINI_API_KEY")
+LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-2.0-flash-lite")
+RPM_LIMIT = int(os.environ.get("LLM_RPM_LIMIT", "14"))
+
+_PROMPT_TEMPLATE = """\
+You are a centralized satellite network orchestrator managing a Low-Earth-Orbit constellation.
+Analyze the task and fleet state, then output ONLY valid JSON — no markdown, no explanation.
+
+TASK:
+  id: {task_id}
+  region: {region}
+  ram_required: {ram} MB
+  anomaly: "{anomaly}"
+
+AVAILABLE SATELLITES:
+{fleet_lines}
+
+ROUTING RULES (apply in order, use semantic reasoning on the anomaly field):
+  1. Data privacy regulations (e.g. GDPR, EU privacy law, or similar): route exclusively to a satellite
+     in the geographically relevant region (e.g. EUROPE for EU regulations). Drop if none available.
+  2. Data sovereignty constraints (e.g. national laws requiring data to stay within a country's jurisdiction):
+     route exclusively to a satellite in the required country's region. Drop if none available.
+  3. Critical hardware failure that makes the task unexecutable (e.g. a sensor, camera, or component
+     required to process this task is broken): drop the task entirely.
+  4. No anomaly or unknown anomaly: route to any satellite in the task's region with link_quality >= {min_lq}%
+     and RAM >= task requirement. Prefer the satellite with the highest link_quality.
+
+Output ONLY valid JSON:
+{{"satellite_id": <integer id or null>, "reason": "one short sentence"}}
+"""
+
 
 class LLMScheduler:
     def __init__(self):
         if not API_KEY:
             print("CRITICAL: GEMINI_API_KEY not found in .env!")
         else:
-            print(">>> [ENGINE] LLM Scheduler Initialized (gemini-3.1-flash-lite-preview)")
+            print(f">>> [ENGINE] LLM Scheduler Initialized ({LLM_MODEL} | rate limit={RPM_LIMIT} RPM)")
+        self._call_timestamps: collections.deque = collections.deque()
+
+    # ------------------------------------------------------------------ #
+    # Rate limiter (sliding window — idêntico ao SLM)                     #
+    # ------------------------------------------------------------------ #
+
+    def _rate_limit_wait(self):
+        now = time.monotonic()
+        while self._call_timestamps and now - self._call_timestamps[0] > 60.0:
+            self._call_timestamps.popleft()
+        if len(self._call_timestamps) >= RPM_LIMIT:
+            wait = 61.0 - (now - self._call_timestamps[0])
+            if wait > 0:
+                print(f"   [LLM Rate Limiter] {len(self._call_timestamps)} calls/min — waiting {wait:.1f}s")
+                time.sleep(wait)
+            now = time.monotonic()
+            while self._call_timestamps and now - self._call_timestamps[0] > 60.0:
+                self._call_timestamps.popleft()
+        self._call_timestamps.append(time.monotonic())
+
+    # ------------------------------------------------------------------ #
+    # Construção do prompt                                                 #
+    # ------------------------------------------------------------------ #
+
+    def _build_prompt(self, task_dict, fleet, min_link_quality):
+        fleet_lines = "\n".join(
+            f"  SAT {s['id']} | region={s['region']} | link_quality={s['link_quality']:.0f}%"
+            f" | ram_free={s['ram_free']} MB"
+            for s in fleet
+        )
+        return _PROMPT_TEMPLATE.format(
+            task_id=task_dict.get("id"),
+            region=task_dict.get("region", "?"),
+            ram=task_dict.get("ram", 0),
+            anomaly=task_dict.get("semantic_anomaly", "none"),
+            fleet_lines=fleet_lines,
+            min_lq=int(min_link_quality),
+        )
+
+    # ------------------------------------------------------------------ #
+    # Chamada API                                                          #
+    # ------------------------------------------------------------------ #
 
     def _call_api(self, prompt):
-        if not API_KEY: return None
-        
-        model = "gemini-3.1-flash-lite-preview"
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={API_KEY}"
-        headers = {'Content-Type': 'application/json'}
-        data = { 
-            "contents": [{"parts": [{"text": prompt}]}], 
-            "generationConfig": {"temperature": 0.0, "responseMimeType": "application/json"} 
+        if not API_KEY:
+            return None
+        self._rate_limit_wait()
+        url = (f"https://generativelanguage.googleapis.com/v1beta/models/"
+               f"{LLM_MODEL}:generateContent?key={API_KEY}")
+        headers = {"Content-Type": "application/json"}
+        data = {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {
+                "temperature": 0.0,
+                "responseMimeType": "application/json",
+                "maxOutputTokens": 128,
+            },
         }
-
         for attempt in range(3):
             try:
                 t0 = time.perf_counter()
-                response = requests.post(url, headers=headers, json=data, verify=False, timeout=15)
-                latencia_ms = (time.perf_counter() - t0) * 1000
-
-                if response.status_code == 200:
-                    print(f"[LLM] Resposta em {latencia_ms:.0f}ms")
-                    return response.json()['candidates'][0]['content']['parts'][0]['text']
-
-                elif response.status_code == 429:
-                    erro_detalhado = response.json().get('error', {}).get('message', 'Sem detalhes')
-                    print(f"[LLM Rate Limit] Tentativa {attempt+1}/3: {erro_detalhado}")
+                r = requests.post(url, headers=headers, json=data, verify=False, timeout=30)
+                latency_ms = (time.perf_counter() - t0) * 1000
+                if r.status_code == 200:
+                    print(f"   [LLM] Resposta em {latency_ms:.0f}ms")
+                    return r.json()["candidates"][0]["content"]["parts"][0]["text"]
+                elif r.status_code == 429:
+                    print(f"   [LLM Rate Limit] Tentativa {attempt+1}/3")
                     continue
-
                 else:
-                    print(f"[LLM Error] HTTP {response.status_code} - {response.text}")
+                    print(f"   [LLM Error] HTTP {r.status_code} — {r.text[:120]}")
                     break
-
             except Exception as e:
-                print(f"[LLM Connection Error] Tentativa {attempt+1}/3: {e}")
+                print(f"   [LLM Connection Error] Tentativa {attempt+1}/3: {e}")
                 continue
-
         return None
 
-    def decide(self, task_dict, fleet, safe_mode_threshold=20.0):
-        prompt = "You are a satellite network orchestrator. Output valid JSON only.\n"
-        
-        t_id = task_dict.get('id')
-        t_reg = task_dict.get('region')
-        t_ram = task_dict.get('ram')
-        
-        prompt += f"TASK: ID {t_id} | Region {t_reg} | RAM Required: {t_ram} MB\n"
-        prompt += "AVAILABLE SATELLITES:\n"
-        
-        valid_exists = False
-        
-        # OTIMIZAÇÃO DO PROMPT: Pré-filtro para não gastar tokens com satélites inúteis
-        for sat in fleet:
-            # Ignora satélites mortos ou de outras regiões (poupando Tokens/TPM)
-            if not sat.get('alive', True): continue
-            if sat.get('region') != t_reg: continue 
-            
-            valid_exists = True
-            safe_str = "SAFE_MODE" if sat.get('safe_mode', False) else "ACTIVE"
-            prompt += f"SAT {sat.get('id')}: Region {sat.get('region')} | Bat {sat.get('battery', 0):.1f}% ({safe_str}) | RAM {sat.get('ram_free')}MB\n"
-            
-        if not valid_exists: 
-            # Se o Python já viu que não há satélites válidos, nem chama a API!
+    # ------------------------------------------------------------------ #
+    # Interface principal                                                  #
+    # ------------------------------------------------------------------ #
+
+    def decide(self, task_dict, fleet, min_link_quality=20.0):
+        # Pré-filtro: se não há satélite na região com link aceitável, poupa a chamada de API
+        valid_exists = any(
+            s.get("region") == task_dict.get("region")
+            and s.get("link_quality", 0) >= min_link_quality
+            for s in fleet
+        )
+        if not valid_exists:
             return None
-        
-        prompt += f"\nRULES:\n"
-        prompt += f"1. Match Region strictly.\n"
-        prompt += f"2. Battery > {safe_mode_threshold}%.\n"
-        prompt += f"3. RAM >= Task RAM.\n"
-        prompt += "Output: {\"satellite_id\": <id>} or {\"satellite_id\": null}."
-        
-        resp = self._call_api(prompt)
-        
-        if resp:
+
+        prompt = self._build_prompt(task_dict, fleet, min_link_quality)
+        raw = self._call_api(prompt)
+        if not raw:
+            return None
+
+        try:
+            # JSON mode ativo para Flash-Lite — resposta já é JSON puro
+            parsed = json.loads(raw)
+        except json.JSONDecodeError:
+            # Fallback: extrai primeiro objeto JSON do texto livre
+            match = re.search(r'\{.*?\}', raw, re.DOTALL)
+            if not match:
+                print(f"   [LLM Parse Error] Nenhum JSON encontrado: {raw[:80]}")
+                return None
             try:
-                return json.loads(resp).get("satellite_id")
-            except:
-                pass
-        return None
+                parsed = json.loads(match.group())
+            except json.JSONDecodeError as e:
+                print(f"   [LLM Parse Error] JSON inválido: {e} | raw={raw[:80]}")
+                return None
+
+        sat_id = parsed.get("satellite_id")
+        reason = parsed.get("reason", "")
+        print(f"   [LLM] satellite_id={sat_id} | reason={reason}")
+        return sat_id

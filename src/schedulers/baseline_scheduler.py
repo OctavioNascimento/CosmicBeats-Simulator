@@ -1,24 +1,22 @@
 class BaselineScheduler:
     def __init__(self):
-        print(">>> [ENGINE] Baseline Scheduler Initialized (Filtered Shortest Queue/Battery)")
+        print(">>> [ENGINE] Baseline Scheduler Initialized (Greedy — link_quality + RAM)")
 
-    def decide(self, task_dict, fleet, safe_mode_threshold=20.0):
-        candidatos_validos = []
+    def decide(self, task_dict, fleet, min_link_quality=20.0):
+        candidatos = []
 
-        # 1. FILTRO RÍGIDO (As regras do teu TCC)
         for sat in fleet:
-            if not sat.get('alive', True): continue
-            if sat.get('region') != task_dict.get('region'): continue
-            if sat.get('battery', 0) <= safe_mode_threshold: continue
-            if sat.get('ram_free', 0) < task_dict.get('ram', 0): continue
-            
-            candidatos_validos.append(sat)
+            if sat.get('region') != task_dict.get('region'):
+                continue
+            if sat.get('link_quality', 0) < min_link_quality:
+                continue
+            if sat.get('ram_free', 0) < task_dict.get('ram', 0):
+                continue
+            candidatos.append(sat)
 
-        if not candidatos_validos:
-            return None # Ninguém cumpriu as regras (Vai para "No Route")
+        if not candidatos:
+            return None
 
-        # 2. HEURÍSTICA DE ESCOLHA (Energy-Aware com desempate em RAM)
-        # Retorna uma tupla (bateria, ram_free). O Python avalia o primeiro e desempata com o segundo!
-        best_sat = max(candidatos_validos, key=lambda s: (s.get('battery', 0), s.get('ram_free', 0)))
-        
-        return best_sat.get('id')
+        # Prioriza melhor link, desempata por maior RAM livre
+        best = max(candidatos, key=lambda s: (s.get('link_quality', 0), s.get('ram_free', 0)))
+        return best.get('id')

@@ -1,25 +1,33 @@
 # src/ai_logic.py
 import csv
 import json
+import math
 import os
 import random
 import time
 
 from src.schedulers.llm_scheduler import LLMScheduler
 from src.schedulers.baseline_scheduler import BaselineScheduler
-from src.schedulers.slm_scheduler import SLMScheduler
+from src.schedulers.slm_scheduler import SLMScheduler, NPU_LATENCY_MS as SLM_NPU_LATENCY_MS
 from src.schedulers.drl_scheduler import DRLScheduler
 
 # Custo energético por decisão — parâmetros calibrados por tipo de hardware
 JOULES_PER_DECISION = {
     "BASELINE": 0.001,   # CPU if/else, ~1μs @ 1W
-    "DRL":      0.005,   # policy forward pass, ~2ms @ 2W
+    "DRL":      0.005,   # Q-table lookup + update, ~2ms @ 2W
     "SLM":      0.100,   # NPU inference, 50ms @ 2W
     "LLM":      5.000,   # LEO→GS TX, ~1s @ 5W
 }
 
-# Atraso de propagação LEO↔GS (round-trip, ~550km orbit)
+# Atraso de propagação LEO↔GS round-trip (550km orbit: 2×550000/3e8 ≈ 3.67ms)
 LLM_PROPAGATION_MS = 3.67
+
+# Duração de processamento de uma tarefa — após este período a RAM é liberada
+TASK_DURATION_S = 60.0
+
+# Modelo de qualidade de link por passe orbital (senoide, período = 10 min)
+LINK_QUALITY_PERIOD_S = 600.0   # LEO simplificado: um passe a cada 10 min na janela de simulação
+LINK_QUALITY_MIN      = 20.0    # abaixo deste valor o satélite não recebe tarefas
 
 
 class MECOrchestrator:
@@ -40,14 +48,16 @@ class MECOrchestrator:
             self.brain = BaselineScheduler()
             self._engine = "BASELINE"
 
-        self.anomaly_rate = anomaly_rate
-        self.task_id = 0
+        self.anomaly_rate  = anomaly_rate
+        self.task_id       = 0
         self.mec_satellites = []
         self.mec_tasks_dropped = 0
         self.next_task_time = -1.0
-        self.lambda_rate = 4.0 / 60.0  # 4 tarefas/minuto
+        self.lambda_rate   = 4.0 / 60.0   # 4 tarefas/minuto
 
-        self.task_log = []  # uma entrada por tarefa finalizada
+        self.task_log    = []   # uma entrada por tarefa finalizada
+        self.active_tasks = []  # (completion_time, sat_id, ram_used) — para liberar RAM
+        self._last_step_time = 0.0
 
     # ------------------------------------------------------------------ #
     # Setup                                                                #
@@ -63,33 +73,61 @@ class MECOrchestrator:
                 nid = getattr(node, 'nodeID', 0)
                 region = region_map[nid % 3]
 
-                node.mec_ram_total = 4096.0
-                node.mec_ram_free = node.mec_ram_total
-                node.mec_battery = 100.0 - (nid % 3) * 25.0
-                node.mec_region = region
+                node.mec_ram_total  = 4096.0
+                node.mec_ram_free   = node.mec_ram_total
+                node.mec_region     = region
                 node.mec_tasks_completed = 0
-                node.mec_tasks_dropped = 0
+                node.mec_tasks_dropped   = 0
+
+                # Fase do passe orbital — satélites igualmente espaçados em fase
+                sat_idx = len(self.mec_satellites)
+                node.mec_link_phase = sat_idx * (LINK_QUALITY_PERIOD_S / 3.0)
 
                 self.mec_satellites.append(node)
-                print(f">>> [MEC] Upgraded {name} (ID {nid}) -> {region}, Bat: {node.mec_battery}%")
+                lq0 = self._link_quality(node, 0.0)
+                print(f">>> [MEC] Upgraded {name} (ID {nid}) -> {region} | "
+                      f"link_quality(t=0)={lq0:.1f}% | phase={node.mec_link_phase:.0f}s")
+
+    # ------------------------------------------------------------------ #
+    # Modelo de qualidade de link                                          #
+    # ------------------------------------------------------------------ #
+
+    def _link_quality(self, node, t):
+        """
+        Qualidade do link LEO↔GS simulada como senoide (representa ângulo de elevação orbital).
+        Resultado: [0%, 100%]. Período = LINK_QUALITY_PERIOD_S. Fase distinta por satélite.
+        """
+        phase = getattr(node, 'mec_link_phase', 0.0)
+        return 50.0 + 50.0 * math.sin(2 * math.pi * (t + phase) / LINK_QUALITY_PERIOD_S)
 
     # ------------------------------------------------------------------ #
     # Helpers                                                              #
     # ------------------------------------------------------------------ #
 
-    def _build_fleet(self):
+    def _build_fleet(self, current_time_sec):
         fleet = []
         for s in self.mec_satellites:
-            bat = getattr(s, 'mec_battery', 0)
+            lq = self._link_quality(s, current_time_sec)
             fleet.append({
-                "id":        getattr(s, 'nodeID', 0),
-                "region":    getattr(s, 'mec_region', 'UNK'),
-                "battery":   bat,
-                "ram_free":  getattr(s, 'mec_ram_free', 0),
-                "alive":     bat > 0,
-                "safe_mode": bat <= 20.0,
+                "id":           getattr(s, 'nodeID', 0),
+                "region":       getattr(s, 'mec_region', 'UNK'),
+                "link_quality": round(lq, 1),
+                "ram_free":     getattr(s, 'mec_ram_free', 0),
             })
         return fleet
+
+    def _release_completed_tasks(self, current_time_sec):
+        """Libera RAM das tarefas que concluíram processamento (após TASK_DURATION_S)."""
+        still_active = []
+        for comp_t, sid, ram in self.active_tasks:
+            if comp_t <= current_time_sec:
+                for s in self.mec_satellites:
+                    if getattr(s, 'nodeID') == sid:
+                        s.mec_ram_free = min(s.mec_ram_total, s.mec_ram_free + ram)
+                        break
+            else:
+                still_active.append((comp_t, sid, ram))
+        self.active_tasks = still_active
 
     @staticmethod
     def _semantic_compliant(task, decision_id, fleet):
@@ -111,15 +149,15 @@ class MECOrchestrator:
             return sat.get('region') == 'BRAZIL'
 
         if anomaly == "falha_hardware_camera_esq":
-            return decision_id is None  # correto = drop
+            return decision_id is None   # correto = drop
 
-        return True  # anomalia desconhecida — sem critério de verificação
+        return True   # anomalia desconhecida — sem critério de verificação
 
     def _apply_decision(self, task, decision_id, current_time_sec,
                         latency_ms, joules_cost, fleet):
-        anomalia = task.get('semantic_anomaly', '')
+        anomalia    = task.get('semantic_anomaly', '')
         anomalia_str = f" [anomalia={anomalia}]" if anomalia else ""
-        compliant = self._semantic_compliant(task, decision_id, fleet)
+        compliant   = self._semantic_compliant(task, decision_id, fleet)
 
         if decision_id is not None:
             print(f"   ---> [{self._engine}] Assign Task {task['id']} to SAT {decision_id}"
@@ -128,26 +166,28 @@ class MECOrchestrator:
             for s in self.mec_satellites:
                 if getattr(s, 'nodeID') == decision_id:
                     s.mec_tasks_completed += 1
-                    s.mec_battery = max(0, s.mec_battery - 1.0)
                     s.mec_ram_free = max(0, s.mec_ram_free - task.get('ram', 0))
                     break
+            self.active_tasks.append(
+                (current_time_sec + TASK_DURATION_S, decision_id, task.get('ram', 0))
+            )
         else:
             print(f"   ---> [{self._engine}] NO ROUTE Task {task['id']}"
                   f"{anomalia_str} | {latency_ms:.0f}ms | {joules_cost:.3f}J")
             self.mec_tasks_dropped += 1
 
         self.task_log.append({
-            "task_id":           task['id'],
-            "region":            task.get('region', ''),
-            "anomaly":           anomalia,
-            "arrival_time_s":    task.get('arrival_time', current_time_sec),
-            "decision_time_s":   current_time_sec,
-            "latency_ms":        round(latency_ms, 3),
-            "joules_cost":       round(joules_cost, 4),
-            "decision_sat_id":   decision_id if decision_id is not None else "",
-            "success":           1 if decision_id is not None else 0,
+            "task_id":            task['id'],
+            "region":             task.get('region', ''),
+            "anomaly":            anomalia,
+            "arrival_time_s":     task.get('arrival_time', current_time_sec),
+            "decision_time_s":    current_time_sec,
+            "latency_ms":         round(latency_ms, 3),
+            "joules_cost":        round(joules_cost, 4),
+            "decision_sat_id":    decision_id if decision_id is not None else "",
+            "success":            1 if decision_id is not None else 0,
             "semantic_compliant": 1 if compliant else 0,
-            "engine":            self._engine,
+            "engine":             self._engine,
         })
 
     # ------------------------------------------------------------------ #
@@ -155,15 +195,15 @@ class MECOrchestrator:
     # ------------------------------------------------------------------ #
 
     def step(self, current_time_sec):
-        # 1. Bateria basal
-        for s in self.mec_satellites:
-            if getattr(s, 'mec_battery', 0) > 0:
-                s.mec_battery = max(0, s.mec_battery - 0.05)
+        self._last_step_time = current_time_sec
+
+        # 1. Libera RAM de tarefas concluídas
+        self._release_completed_tasks(current_time_sec)
 
         # 2. Processa inferências SLM concluídas neste tick
         if hasattr(self.brain, 'check_completed_inferences'):
             for task, decision_id in self.brain.check_completed_inferences(current_time_sec):
-                latency_ms  = task.get('slm_wall_latency_ms', 0.001)
+                latency_ms  = SLM_NPU_LATENCY_MS   # latência NPU simulada (não wall-clock da API)
                 joules_cost = JOULES_PER_DECISION.get("SLM", 0.1)
                 fleet       = task.get('slm_fleet_snapshot', [])
                 self._apply_decision(task, decision_id, current_time_sec,
@@ -196,18 +236,20 @@ class MECOrchestrator:
                 "falha_hardware_camera_esq",
             ])
 
-        fleet = self._build_fleet()
+        fleet = self._build_fleet(current_time_sec)
         anomalia_str = f" [anomalia={task['semantic_anomaly']}]" if task.get('semantic_anomaly') else ""
-        print(f"\n[MEC T+{current_time_sec:.1f}] New Task {self.task_id} ({region}){anomalia_str}")
+        # Mostra link_quality da região da tarefa para diagnóstico
+        region_lq = next((s['link_quality'] for s in fleet if s['region'] == region), '?')
+        print(f"\n[MEC T+{current_time_sec:.1f}] New Task {self.task_id} ({region} LQ={region_lq}%){anomalia_str}")
 
         if hasattr(self.brain, 'receive_task'):
             # SLM: async
             self.brain.receive_task(task, current_time_sec, fleet)
         else:
-            # LLM / BASELINE / DRL: sync — mede latência real em wall-clock
-            t_wall = time.perf_counter()
-            decision_id = self.brain.decide(task, fleet, safe_mode_threshold=20.0)
-            wall_ms = (time.perf_counter() - t_wall) * 1000
+            # LLM / BASELINE / DRL: sync
+            t_wall      = time.perf_counter()
+            decision_id = self.brain.decide(task, fleet, min_link_quality=LINK_QUALITY_MIN)
+            wall_ms     = (time.perf_counter() - t_wall) * 1000
 
             latency_ms  = wall_ms + LLM_PROPAGATION_MS if self._engine == "LLM" else wall_ms
             joules_cost = JOULES_PER_DECISION.get(self._engine, 0.001)
@@ -228,13 +270,12 @@ class MECOrchestrator:
 
         for s in self.mec_satellites:
             completed = getattr(s, 'mec_tasks_completed', 0)
-            battery   = getattr(s, 'mec_battery', 0)
             region    = getattr(s, 'mec_region', 'UNK')
-            status    = "DEAD" if battery <= 0 else "ALIVE"
+            lq        = self._link_quality(s, self._last_step_time)
             total_completed += completed
 
-            print(f"SAT {getattr(s, 'nodeID')} ({region}) [{status}]")
-            print(f"  Battery:         {battery:.1f}%")
+            print(f"SAT {getattr(s, 'nodeID')} ({region})")
+            print(f"  Link Quality:    {lq:.1f}%")
             print(f"  RAM Free:        {getattr(s, 'mec_ram_free', 0):.0f} MB")
             print(f"  Tasks Completed: {completed}")
             print("-" * 22)
@@ -245,8 +286,8 @@ class MECOrchestrator:
         print(f"TOTAL REJECTED:           {self.mec_tasks_dropped}")
         if n > 0:
             success_rate  = total_completed / self.task_id * 100
-            avg_lat       = sum(r['latency_ms']   for r in self.task_log) / n
-            total_joules  = sum(r['joules_cost']  for r in self.task_log)
+            avg_lat       = sum(r['latency_ms']  for r in self.task_log) / n
+            total_joules  = sum(r['joules_cost'] for r in self.task_log)
             avg_joules    = total_joules / n
             compliant_n   = sum(r['semantic_compliant'] for r in self.task_log)
             anomaly_tasks = [r for r in self.task_log if r['anomaly']]
@@ -259,14 +300,17 @@ class MECOrchestrator:
             if anomaly_tasks:
                 anom_ok = sum(r['semantic_compliant'] for r in anomaly_tasks)
                 print(f"ANOMALY COMPLIANCE:       {anom_ok}/{len(anomaly_tasks)}")
+
+        if hasattr(self.brain, 'print_qtable'):
+            self.brain.print_qtable()
+
         print("=" * 44 + "\n")
 
     def save_metrics(self):
         os.makedirs("logs", exist_ok=True)
         engine = self._engine
 
-        # CSV — uma linha por tarefa
-        csv_path = f"logs/mec_metrics_{engine}.csv"
+        csv_path   = f"logs/mec_metrics_{engine}.csv"
         fieldnames = [
             "task_id", "region", "anomaly",
             "arrival_time_s", "decision_time_s", "latency_ms",
@@ -278,8 +322,7 @@ class MECOrchestrator:
             writer.writeheader()
             writer.writerows(self.task_log)
 
-        # JSON — KPIs agregados
-        n = len(self.task_log)
+        n       = len(self.task_log)
         summary = {"engine": engine, "total_tasks": n}
         if n > 0:
             completed      = sum(r['success']            for r in self.task_log)
@@ -288,16 +331,16 @@ class MECOrchestrator:
             anom_compliant = sum(r['semantic_compliant'] for r in anomaly_tasks)
 
             summary.update({
-                "success_count":           completed,
-                "success_rate":            round(completed / n, 4),
-                "drop_count":              self.mec_tasks_dropped,
-                "drop_rate":               round(self.mec_tasks_dropped / n, 4),
-                "avg_latency_ms":          round(sum(r['latency_ms']  for r in self.task_log) / n, 3),
-                "total_joules":            round(sum(r['joules_cost'] for r in self.task_log), 4),
-                "joules_per_decision":     round(JOULES_PER_DECISION.get(engine, 0.001), 4),
-                "anomaly_task_count":      len(anomaly_tasks),
+                "success_count":            completed,
+                "success_rate":             round(completed / n, 4),
+                "drop_count":               self.mec_tasks_dropped,
+                "drop_rate":                round(self.mec_tasks_dropped / n, 4),
+                "avg_latency_ms":           round(sum(r['latency_ms']  for r in self.task_log) / n, 3),
+                "total_joules":             round(sum(r['joules_cost'] for r in self.task_log), 4),
+                "joules_per_decision":      round(JOULES_PER_DECISION.get(engine, 0.001), 4),
+                "anomaly_task_count":       len(anomaly_tasks),
                 "semantic_compliance_rate": round(compliant / n, 4),
-                "anomaly_compliance_rate": round(anom_compliant / len(anomaly_tasks), 4) if anomaly_tasks else None,
+                "anomaly_compliance_rate":  round(anom_compliant / len(anomaly_tasks), 4) if anomaly_tasks else None,
             })
 
         json_path = f"logs/mec_summary_{engine}.json"
