@@ -18,6 +18,7 @@ RPM_LIMIT      = int(os.environ.get("SLM_RPM_LIMIT", "14"))  # conservative unde
 _PROMPT_TEMPLATE = """\
 CONTEXT: You are an AI scheduler embedded in a Low-Earth-Orbit satellite (edge node). \
 You have strict resource constraints and must make fast routing decisions. \
+Inter-satellite links (ISL) are always available — connectivity is never the bottleneck. \
 Output ONLY valid JSON — no markdown, no explanation.
 
 TASK:
@@ -36,8 +37,8 @@ ROUTING RULES (apply in order, use semantic reasoning on the anomaly field):
      route exclusively to a satellite in the required country's region. Drop if none available.
   3. Critical hardware failure that makes the task unexecutable (e.g. a sensor, camera, or component
      required to process this task is broken): drop the task entirely.
-  4. No anomaly or unknown anomaly: route to any satellite in the task's region with link_quality >= 20%
-     and sufficient RAM. Prefer the satellite with the highest link_quality.
+  4. No anomaly or unknown anomaly: route to any satellite in the task's region with battery_pct > 20%
+     and sufficient RAM. Prefer the satellite with the highest battery_pct (solar_charging=true is a bonus).
   5. Use action='process' when routing to the task's own region, action='route' when forwarding to a
      different region, action='drop' only when no compliant satellite exists or a fatal hardware failure applies.
 
@@ -92,7 +93,9 @@ class SLMScheduler:
 
     def _build_prompt(self, task_dict, fleet):
         fleet_lines = "\n".join(
-            f"  SAT {s['id']} | region={s['region']} | link_quality={s['link_quality']:.0f}%"
+            f"  SAT {s['id']} | region={s['region']}"
+            f" | battery_pct={s['battery_pct']:.0f}%"
+            f" | solar_charging={s['solar_charging']}"
             f" | ram_free={s['ram_free']} MB"
             for s in fleet
         )
@@ -149,7 +152,9 @@ class SLMScheduler:
                           f" target={result.get('target_region')} reason={result.get('reason', '')}")
                     return result
                 elif r.status_code == 429:
-                    print(f"   [SLM Rate Limit] Tentativa {attempt+1}/3")
+                    wait = 30 * (attempt + 1)
+                    print(f"   [SLM Rate Limit] Tentativa {attempt+1}/3 — aguardando {wait}s")
+                    time.sleep(wait)
                     continue
                 else:
                     print(f"   [SLM Error] HTTP {r.status_code} — {r.text[:120]}")
@@ -169,7 +174,7 @@ class SLMScheduler:
         if target_region:
             for s in fleet:
                 if (s.get("region") == target_region
-                        and s.get("link_quality", 0) >= 20.0
+                        and s.get("battery_pct", 100.0) > 20.0
                         and s.get("ram_free", 0) >= task_dict.get("ram", 0)):
                     return s.get("id")
         return None

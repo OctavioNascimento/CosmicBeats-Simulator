@@ -16,6 +16,7 @@ RPM_LIMIT = int(os.environ.get("LLM_RPM_LIMIT", "14"))
 
 _PROMPT_TEMPLATE = """\
 You are a centralized satellite network orchestrator managing a Low-Earth-Orbit constellation.
+Inter-satellite links (ISL) are always available — connectivity is never the bottleneck.
 Analyze the task and fleet state, then output ONLY valid JSON — no markdown, no explanation.
 
 TASK:
@@ -34,8 +35,8 @@ ROUTING RULES (apply in order, use semantic reasoning on the anomaly field):
      route exclusively to a satellite in the required country's region. Drop if none available.
   3. Critical hardware failure that makes the task unexecutable (e.g. a sensor, camera, or component
      required to process this task is broken): drop the task entirely.
-  4. No anomaly or unknown anomaly: route to any satellite in the task's region with link_quality >= {min_lq}%
-     and RAM >= task requirement. Prefer the satellite with the highest link_quality.
+  4. No anomaly or unknown anomaly: route to any satellite in the task's region with battery_pct > 20%
+     and RAM >= task requirement. Prefer the satellite with the highest battery_pct.
 
 Output ONLY valid JSON:
 {{"satellite_id": <integer id or null>, "reason": "one short sentence"}}
@@ -72,9 +73,11 @@ class LLMScheduler:
     # Construção do prompt                                                 #
     # ------------------------------------------------------------------ #
 
-    def _build_prompt(self, task_dict, fleet, min_link_quality):
+    def _build_prompt(self, task_dict, fleet):
         fleet_lines = "\n".join(
-            f"  SAT {s['id']} | region={s['region']} | link_quality={s['link_quality']:.0f}%"
+            f"  SAT {s['id']} | region={s['region']}"
+            f" | battery_pct={s['battery_pct']:.0f}%"
+            f" | solar_charging={s['solar_charging']}"
             f" | ram_free={s['ram_free']} MB"
             for s in fleet
         )
@@ -84,7 +87,6 @@ class LLMScheduler:
             ram=task_dict.get("ram", 0),
             anomaly=task_dict.get("semantic_anomaly", "none"),
             fleet_lines=fleet_lines,
-            min_lq=int(min_link_quality),
         )
 
     # ------------------------------------------------------------------ #
@@ -115,7 +117,9 @@ class LLMScheduler:
                     print(f"   [LLM] Resposta em {latency_ms:.0f}ms")
                     return r.json()["candidates"][0]["content"]["parts"][0]["text"]
                 elif r.status_code == 429:
-                    print(f"   [LLM Rate Limit] Tentativa {attempt+1}/3")
+                    wait = 30 * (attempt + 1)
+                    print(f"   [LLM Rate Limit] Tentativa {attempt+1}/3 — aguardando {wait}s")
+                    time.sleep(wait)
                     continue
                 else:
                     print(f"   [LLM Error] HTTP {r.status_code} — {r.text[:120]}")
@@ -129,17 +133,17 @@ class LLMScheduler:
     # Interface principal                                                  #
     # ------------------------------------------------------------------ #
 
-    def decide(self, task_dict, fleet, min_link_quality=20.0):
-        # Pré-filtro: se não há satélite na região com link aceitável, poupa a chamada de API
+    def decide(self, task_dict, fleet, battery_safety_pct=20.0):
+        # Pré-filtro: se não há satélite na região com bateria suficiente, poupa a chamada de API
         valid_exists = any(
             s.get("region") == task_dict.get("region")
-            and s.get("link_quality", 0) >= min_link_quality
+            and s.get("battery_pct", 100.0) > battery_safety_pct
             for s in fleet
         )
         if not valid_exists:
             return None
 
-        prompt = self._build_prompt(task_dict, fleet, min_link_quality)
+        prompt = self._build_prompt(task_dict, fleet)
         raw = self._call_api(prompt)
         if not raw:
             return None

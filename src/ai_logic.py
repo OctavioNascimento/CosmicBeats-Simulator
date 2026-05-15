@@ -25,9 +25,13 @@ LLM_PROPAGATION_MS = 3.67
 # Duração de processamento de uma tarefa — após este período a RAM é liberada
 TASK_DURATION_S = 60.0
 
-# Modelo de qualidade de link por passe orbital (senoide, período = 10 min)
-LINK_QUALITY_PERIOD_S = 600.0   # LEO simplificado: um passe a cada 10 min na janela de simulação
-LINK_QUALITY_MIN      = 20.0    # abaixo deste valor o satélite não recebe tarefas
+# Modelo de eclipse orbital — bateria drena quando sem luz solar (premissa ISL sempre disponível)
+ORBITAL_PERIOD_S      = 5400.0  # período orbital LEO (90 min)
+ECLIPSE_THRESHOLD     = -0.10   # sin < -0.1 → eclipse (~35% do ciclo ≈ 31.5 min/órbita)
+SOLAR_CHARGE_RATE_PCT = 0.083   # +0.083%/step em luz solar (+1%/min)
+ECLIPSE_DRAIN_PCT     = 0.040   # -0.040%/step em eclipse (consumo de housekeeping)
+TASK_ENERGY_COST_PCT  = 2.0     # -2% SOC por tarefa aceita (consumo de processamento MEC)
+BATTERY_SAFETY_PCT    = 20.0    # abaixo disto, satélite recusa novas tarefas
 
 
 class MECOrchestrator:
@@ -79,26 +83,36 @@ class MECOrchestrator:
                 node.mec_tasks_completed = 0
                 node.mec_tasks_dropped   = 0
 
-                # Fase do passe orbital — satélites igualmente espaçados em fase
-                sat_idx = len(self.mec_satellites)
-                node.mec_link_phase = sat_idx * (LINK_QUALITY_PERIOD_S / 3.0)
+                # Bateria: capacidade e SOC inicial variam por hardware (nodeID % 3)
+                capacity_map      = {0: 100.0, 1: 75.0,  2: 50.0}
+                soc_map           = {0: 85.0,  1: 90.0,  2: 75.0}
+                orbital_phase_map = {0: 3600.0, 1: 0.0, 2: 1800.0}
+                node_idx = nid % 3
+                node.mec_battery_capacity_wh = capacity_map[node_idx]
+                node.mec_battery_soc_pct     = soc_map[node_idx]
+                node.mec_orbital_phase       = orbital_phase_map[node_idx]
+                node.mec_solar_charging      = True
 
                 self.mec_satellites.append(node)
-                lq0 = self._link_quality(node, 0.0)
                 print(f">>> [MEC] Upgraded {name} (ID {nid}) -> {region} | "
-                      f"link_quality(t=0)={lq0:.1f}% | phase={node.mec_link_phase:.0f}s")
+                      f"battery={node.mec_battery_soc_pct:.0f}% "
+                      f"({node.mec_battery_capacity_wh:.0f}Wh)")
 
     # ------------------------------------------------------------------ #
-    # Modelo de qualidade de link                                          #
+    # Modelo de eclipse orbital / bateria                                  #
     # ------------------------------------------------------------------ #
 
-    def _link_quality(self, node, t):
-        """
-        Qualidade do link LEO↔GS simulada como senoide (representa ângulo de elevação orbital).
-        Resultado: [0%, 100%]. Período = LINK_QUALITY_PERIOD_S. Fase distinta por satélite.
-        """
-        phase = getattr(node, 'mec_link_phase', 0.0)
-        return 50.0 + 50.0 * math.sin(2 * math.pi * (t + phase) / LINK_QUALITY_PERIOD_S)
+    def _update_battery(self, current_time_sec):
+        """Atualiza SOC de todos os satélites a cada tick (5s): carrega em sol, drena em eclipse."""
+        for s in self.mec_satellites:
+            phase     = getattr(s, 'mec_orbital_phase', 0.0)
+            solar_val = math.sin(2 * math.pi * (current_time_sec + phase) / ORBITAL_PERIOD_S)
+            in_eclipse = (solar_val <= ECLIPSE_THRESHOLD)
+            if in_eclipse:
+                s.mec_battery_soc_pct = max(0.0, s.mec_battery_soc_pct - ECLIPSE_DRAIN_PCT)
+            else:
+                s.mec_battery_soc_pct = min(100.0, s.mec_battery_soc_pct + SOLAR_CHARGE_RATE_PCT)
+            s.mec_solar_charging = not in_eclipse
 
     # ------------------------------------------------------------------ #
     # Helpers                                                              #
@@ -107,12 +121,12 @@ class MECOrchestrator:
     def _build_fleet(self, current_time_sec):
         fleet = []
         for s in self.mec_satellites:
-            lq = self._link_quality(s, current_time_sec)
             fleet.append({
-                "id":           getattr(s, 'nodeID', 0),
-                "region":       getattr(s, 'mec_region', 'UNK'),
-                "link_quality": round(lq, 1),
-                "ram_free":     getattr(s, 'mec_ram_free', 0),
+                "id":             getattr(s, 'nodeID', 0),
+                "region":         getattr(s, 'mec_region', 'UNK'),
+                "battery_pct":    round(getattr(s, 'mec_battery_soc_pct', 100.0), 1),
+                "solar_charging": getattr(s, 'mec_solar_charging', True),
+                "ram_free":       getattr(s, 'mec_ram_free', 0),
             })
         return fleet
 
@@ -166,7 +180,8 @@ class MECOrchestrator:
             for s in self.mec_satellites:
                 if getattr(s, 'nodeID') == decision_id:
                     s.mec_tasks_completed += 1
-                    s.mec_ram_free = max(0, s.mec_ram_free - task.get('ram', 0))
+                    s.mec_ram_free        = max(0,   s.mec_ram_free        - task.get('ram', 0))
+                    s.mec_battery_soc_pct = max(0.0, s.mec_battery_soc_pct - TASK_ENERGY_COST_PCT)
                     break
             self.active_tasks.append(
                 (current_time_sec + TASK_DURATION_S, decision_id, task.get('ram', 0))
@@ -200,7 +215,10 @@ class MECOrchestrator:
         # 1. Libera RAM de tarefas concluídas
         self._release_completed_tasks(current_time_sec)
 
-        # 2. Processa inferências SLM concluídas neste tick
+        # 2. Atualiza bateria (drena eclipse / carrega sol a cada tick de 5s)
+        self._update_battery(current_time_sec)
+
+        # 3. Processa inferências SLM concluídas neste tick
         if hasattr(self.brain, 'check_completed_inferences'):
             for task, decision_id in self.brain.check_completed_inferences(current_time_sec):
                 latency_ms  = SLM_NPU_LATENCY_MS   # latência NPU simulada (não wall-clock da API)
@@ -209,14 +227,14 @@ class MECOrchestrator:
                 self._apply_decision(task, decision_id, current_time_sec,
                                      latency_ms, joules_cost, fleet)
 
-        # 3. Poisson: inicializa ou verifica chegada de nova tarefa
+        # 4. Poisson: inicializa ou verifica chegada de nova tarefa
         if self.next_task_time < 0:
             self.next_task_time = current_time_sec + random.expovariate(self.lambda_rate)
 
         if current_time_sec < self.next_task_time:
             return
 
-        # 4. Gera nova tarefa
+        # 5. Gera nova tarefa
         self.task_id += 1
         rand_val = random.random()
         if rand_val < 0.33:
@@ -238,9 +256,9 @@ class MECOrchestrator:
 
         fleet = self._build_fleet(current_time_sec)
         anomalia_str = f" [anomalia={task['semantic_anomaly']}]" if task.get('semantic_anomaly') else ""
-        # Mostra link_quality da região da tarefa para diagnóstico
-        region_lq = next((s['link_quality'] for s in fleet if s['region'] == region), '?')
-        print(f"\n[MEC T+{current_time_sec:.1f}] New Task {self.task_id} ({region} LQ={region_lq}%){anomalia_str}")
+        region_bat   = next((f"{s['battery_pct']:.0f}%" for s in fleet if s['region'] == region), '?')
+        solar_icon   = next(("☀" if s['solar_charging'] else "◑" for s in fleet if s['region'] == region), '')
+        print(f"\n[MEC T+{current_time_sec:.1f}] New Task {self.task_id} ({region} BAT={region_bat}{solar_icon}){anomalia_str}")
 
         if hasattr(self.brain, 'receive_task'):
             # SLM: async
@@ -248,7 +266,7 @@ class MECOrchestrator:
         else:
             # LLM / BASELINE / DRL: sync
             t_wall      = time.perf_counter()
-            decision_id = self.brain.decide(task, fleet, min_link_quality=LINK_QUALITY_MIN)
+            decision_id = self.brain.decide(task, fleet)
             wall_ms     = (time.perf_counter() - t_wall) * 1000
 
             latency_ms  = wall_ms + LLM_PROPAGATION_MS if self._engine == "LLM" else wall_ms
@@ -269,13 +287,15 @@ class MECOrchestrator:
         total_completed = 0
 
         for s in self.mec_satellites:
-            completed = getattr(s, 'mec_tasks_completed', 0)
-            region    = getattr(s, 'mec_region', 'UNK')
-            lq        = self._link_quality(s, self._last_step_time)
+            completed  = getattr(s, 'mec_tasks_completed', 0)
+            region     = getattr(s, 'mec_region', 'UNK')
+            soc        = getattr(s, 'mec_battery_soc_pct', 0.0)
+            cap        = getattr(s, 'mec_battery_capacity_wh', 0.0)
+            solar_str  = "Solar" if getattr(s, 'mec_solar_charging', True) else "Eclipse"
             total_completed += completed
 
             print(f"SAT {getattr(s, 'nodeID')} ({region})")
-            print(f"  Link Quality:    {lq:.1f}%")
+            print(f"  Battery SOC:     {soc:.1f}% ({cap:.0f}Wh) | {solar_str}")
             print(f"  RAM Free:        {getattr(s, 'mec_ram_free', 0):.0f} MB")
             print(f"  Tasks Completed: {completed}")
             print("-" * 22)
@@ -342,6 +362,17 @@ class MECOrchestrator:
                 "semantic_compliance_rate": round(compliant / n, 4),
                 "anomaly_compliance_rate":  round(anom_compliant / len(anomaly_tasks), 4) if anomaly_tasks else None,
             })
+            # RAM utilization ao final da simulação
+            ram_util = [
+                (s.mec_ram_total - s.mec_ram_free) / s.mec_ram_total * 100
+                for s in self.mec_satellites
+            ]
+            summary["avg_ram_utilization_pct"] = round(sum(ram_util) / len(ram_util), 1) if ram_util else 0.0
+            # Estado final de bateria por satélite
+            for s in self.mec_satellites:
+                summary[f"sat_{getattr(s, 'nodeID')}_final_battery_pct"] = round(
+                    getattr(s, 'mec_battery_soc_pct', 0.0), 1
+                )
 
         json_path = f"logs/mec_summary_{engine}.json"
         with open(json_path, 'w', encoding='utf-8') as f:

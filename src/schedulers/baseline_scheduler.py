@@ -1,14 +1,14 @@
 class BaselineScheduler:
     def __init__(self):
-        print(">>> [ENGINE] Baseline Scheduler Initialized (Greedy — link_quality + RAM)")
+        print(">>> [ENGINE] Baseline Scheduler Initialized (Greedy — battery + RAM | ISL always available)")
 
-    def decide(self, task_dict, fleet, min_link_quality=20.0):
+    def decide(self, task_dict, fleet, battery_safety_pct=20.0):
         candidatos = []
 
         for sat in fleet:
             if sat.get('region') != task_dict.get('region'):
                 continue
-            if sat.get('link_quality', 0) < min_link_quality:
+            if sat.get('battery_pct', 100.0) <= battery_safety_pct:
                 continue
             if sat.get('ram_free', 0) < task_dict.get('ram', 0):
                 continue
@@ -17,6 +17,6 @@ class BaselineScheduler:
         if not candidatos:
             return None
 
-        # Prioriza melhor link, desempata por maior RAM livre
-        best = max(candidatos, key=lambda s: (s.get('link_quality', 0), s.get('ram_free', 0)))
+        # Prioriza maior bateria, desempata por maior RAM livre
+        best = max(candidatos, key=lambda s: (s.get('battery_pct', 0), s.get('ram_free', 0)))
         return best.get('id')

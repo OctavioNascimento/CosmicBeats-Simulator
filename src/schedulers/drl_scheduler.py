@@ -6,15 +6,15 @@ class DRLScheduler:
     """
     Q-learning tabular online: agente de RL que aprende durante a simulação.
 
-    Estado: (region_idx, link_quality_bin, ram_ok, has_anomaly) — 36 estados possíveis.
-    Ações: PREFER_LINK | PREFER_RAM | PREFER_BALANCED | DROP (0–3).
+    Estado: (region_idx, bat_bin, ram_ok, has_anomaly) — 36 estados possíveis.
+    Ações: PREFER_BATTERY | PREFER_RAM | PREFER_BALANCED | DROP (0–3).
 
     Invariante científico: DRL conhece que há anomalia (has_anomaly=1) mas
     não conhece o tipo (GDPR, soberania, hardware). Isso é intencional —
     justifica menor semantic_compliance vs SLM/LLM nos resultados do TCC.
     """
 
-    ACTIONS   = [0, 1, 2, 3]   # PREFER_LINK, PREFER_RAM, PREFER_BALANCED, DROP
+    ACTIONS   = [0, 1, 2, 3]   # PREFER_BATTERY, PREFER_RAM, PREFER_BALANCED, DROP
     ALPHA     = 0.10
     EPS_0     = 0.30
     EPS_MIN   = 0.05
@@ -48,11 +48,11 @@ class DRLScheduler:
             and s.get("ram_free", 0) >= task_dict.get("ram", 0)
         ]
         ram_ok   = 1 if candidates else 0
-        best_lq  = max((s.get("link_quality", 0) for s in candidates), default=0)
-        lq_bin   = 0 if best_lq < 40 else (1 if best_lq < 70 else 2)
+        best_bat = max((s.get("battery_pct", 0) for s in candidates), default=0)
+        bat_bin  = 0 if best_bat < 40 else (1 if best_bat < 70 else 2)
 
         has_anomaly = 1 if task_dict.get("semantic_anomaly") else 0
-        return (region_idx, lq_bin, ram_ok, has_anomaly)
+        return (region_idx, bat_bin, ram_ok, has_anomaly)
 
     # ------------------------------------------------------------------ #
     # Mapeamento ação → satélite                                          #
@@ -61,15 +61,15 @@ class DRLScheduler:
     def _resolve_action(self, action, candidates):
         if action == 3 or not candidates:
             return None
-        if action == 0:   # PREFER_LINK
-            return max(candidates, key=lambda s: s.get("link_quality", 0)).get("id")
+        if action == 0:   # PREFER_BATTERY
+            return max(candidates, key=lambda s: s.get("battery_pct", 0)).get("id")
         if action == 1:   # PREFER_RAM
             return max(candidates, key=lambda s: s.get("ram_free", 0)).get("id")
         # PREFER_BALANCED (action == 2)
         max_ram = max(s.get("ram_free", 1) for s in candidates)
         return max(
             candidates,
-            key=lambda s: (0.5 * s.get("link_quality", 0) / 100.0
+            key=lambda s: (0.5 * s.get("battery_pct", 0) / 100.0
                            + 0.5 * s.get("ram_free", 0) / max(max_ram, 1)),
         ).get("id")
 
@@ -77,11 +77,11 @@ class DRLScheduler:
     # Interface principal                                                  #
     # ------------------------------------------------------------------ #
 
-    def decide(self, task_dict, fleet, min_link_quality=20.0):
+    def decide(self, task_dict, fleet, battery_safety_pct=20.0):
         candidates = [
             s for s in fleet
             if s.get("region") == task_dict.get("region")
-            and s.get("link_quality", 0) >= min_link_quality
+            and s.get("battery_pct", 100.0) > battery_safety_pct
             and s.get("ram_free", 0) >= task_dict.get("ram", 0)
         ]
 
@@ -99,10 +99,10 @@ class DRLScheduler:
 
         # Recompensa imediata — sem componente semântico (DRL é caixa-preta para anomalias)
         if decision_id is not None:
-            chosen_lq = next(
-                (s.get("link_quality", 0) for s in candidates if s.get("id") == decision_id), 0
+            chosen_bat = next(
+                (s.get("battery_pct", 0) for s in candidates if s.get("id") == decision_id), 0
             )
-            reward = 1.0 + 0.1 * (chosen_lq / 100.0)   # bônus por link de qualidade
+            reward = 1.0 + 0.1 * (chosen_bat / 100.0)   # bônus por bateria mais alta
         elif forced_drop:
             reward = -0.5   # drop inevitável (sem candidatos válidos)
         else:
@@ -112,7 +112,7 @@ class DRLScheduler:
         q_vals[action] += self.ALPHA * (reward - q_vals[action])
         self._step += 1
 
-        action_names = ["PREFER_LINK", "PREFER_RAM", "PREFER_BALANCED", "DROP"]
+        action_names = ["PREFER_BATTERY", "PREFER_RAM", "PREFER_BALANCED", "DROP"]
         print(f"   [DRL ε={self.epsilon:.2f} step={self._step}] "
               f"action={action_names[action]} → SAT {decision_id} | r={reward:.2f} "
               f"| Q={q_vals[action]:.3f}")
@@ -125,11 +125,11 @@ class DRLScheduler:
 
     def print_qtable(self):
         region_names = ["USA", "BRAZIL", "EUROPE"]
-        lq_names     = ["low(<40%)", "mid(40-70%)", "high(>70%)"]
-        action_names = ["PREFER_LINK", "PREFER_RAM", "PREFER_BALANCED", "DROP"]
+        bat_names    = ["low(<40%)", "mid(40-70%)", "high(>70%)"]
+        action_names = ["PREFER_BATTERY", "PREFER_RAM", "PREFER_BALANCED", "DROP"]
         print("\n--- DRL Q-Table (estados visitados) ---")
-        for (reg, lq_bin, ram, anom), qv in sorted(self.q_table.items()):
-            row = f"  [{region_names[reg]} | lq={lq_names[lq_bin]} | ram_ok={ram} | anomaly={anom}] "
+        for (reg, bat_bin, ram, anom), qv in sorted(self.q_table.items()):
+            row = f"  [{region_names[reg]} | bat={bat_names[bat_bin]} | ram_ok={ram} | anomaly={anom}] "
             row += " | ".join(f"{action_names[a]}={qv[a]:.3f}" for a in self.ACTIONS)
             print(row)
         print(f"  Estados visitados: {len(self.q_table)} / 36")
