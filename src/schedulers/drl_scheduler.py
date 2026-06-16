@@ -1,137 +1,114 @@
-import collections
-import random
+"""
+DRL Scheduler — Stable Baselines3 DQN agent for NTN-MEC routing.
+
+Loads a pre-trained DQN model (models/best_model.zip).
+Train with: python scripts/train_drl.py
+
+Action mapping (same as NTNMECEnv):
+  0 → SAT-1  (BRAZIL)
+  1 → SAT-2  (EUROPE)
+  2 → SAT-15 (USA)
+  3 → DROP
+
+Scientific invariant preserved: agent receives has_anomaly=1 but NOT the anomaly
+type — it cannot learn GDPR/sovereignty semantics. This justifies lower
+semantic_compliance vs SLM/LLM in comparative results.
+"""
+
+import os
+import numpy as np
+
+_MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "models", "best_model.zip")
+
+# Satellite order MUST match NTNMECEnv._SATS
+_SAT_ORDER = [
+    {"id": 1,  "region": "BRAZIL"},
+    {"id": 2,  "region": "EUROPE"},
+    {"id": 15, "region": "USA"},
+]
+_REGION_IDX = {"USA": 0, "BRAZIL": 1, "EUROPE": 2}
+_RAM_TOTAL   = 4096.0
+_BAT_SAFETY  = 20.0
 
 
 class DRLScheduler:
-    """
-    Q-learning tabular online: agente de RL que aprende durante a simulação.
-
-    Estado: (region_idx, bat_bin, ram_ok, has_anomaly) — 36 estados possíveis.
-    Ações: PREFER_BATTERY | PREFER_RAM | PREFER_BALANCED | DROP (0–3).
-
-    Invariante científico: DRL conhece que há anomalia (has_anomaly=1) mas
-    não conhece o tipo (GDPR, soberania, hardware). Isso é intencional —
-    justifica menor semantic_compliance vs SLM/LLM nos resultados do TCC.
-    """
-
-    ACTIONS   = [0, 1, 2, 3]   # PREFER_BATTERY, PREFER_RAM, PREFER_BALANCED, DROP
-    ALPHA     = 0.10
-    EPS_0     = 0.30
-    EPS_MIN   = 0.05
-    EPS_STEPS = 200
-
     def __init__(self):
-        print(">>> [ENGINE] DRL Scheduler Initialized (Q-Learning tabular | ε=0.30→0.05 | α=0.10 | 36 states)")
-        self.q_table = collections.defaultdict(lambda: {a: 0.1 for a in self.ACTIONS})
-        self._step   = 0
-
-    # ------------------------------------------------------------------ #
-    # Propriedades                                                         #
-    # ------------------------------------------------------------------ #
-
-    @property
-    def epsilon(self):
-        decay = (self.EPS_0 - self.EPS_MIN) / self.EPS_STEPS
-        return max(self.EPS_MIN, self.EPS_0 - self._step * decay)
-
-    # ------------------------------------------------------------------ #
-    # Codificação de estado                                                #
-    # ------------------------------------------------------------------ #
-
-    def _encode_state(self, task_dict, fleet):
-        region_map = {"USA": 0, "BRAZIL": 1, "EUROPE": 2}
-        region_idx = region_map.get(task_dict.get("region", "USA"), 0)
-
-        candidates = [
-            s for s in fleet
-            if s.get("region") == task_dict.get("region")
-            and s.get("ram_free", 0) >= task_dict.get("ram", 0)
-        ]
-        ram_ok   = 1 if candidates else 0
-        best_bat = max((s.get("battery_pct", 0) for s in candidates), default=0)
-        bat_bin  = 0 if best_bat < 40 else (1 if best_bat < 70 else 2)
-
-        has_anomaly = 1 if task_dict.get("semantic_anomaly") else 0
-        return (region_idx, bat_bin, ram_ok, has_anomaly)
-
-    # ------------------------------------------------------------------ #
-    # Mapeamento ação → satélite                                          #
-    # ------------------------------------------------------------------ #
-
-    def _resolve_action(self, action, candidates):
-        if action == 3 or not candidates:
-            return None
-        if action == 0:   # PREFER_BATTERY
-            return max(candidates, key=lambda s: s.get("battery_pct", 0)).get("id")
-        if action == 1:   # PREFER_RAM
-            return max(candidates, key=lambda s: s.get("ram_free", 0)).get("id")
-        # PREFER_BALANCED (action == 2)
-        max_ram = max(s.get("ram_free", 1) for s in candidates)
-        return max(
-            candidates,
-            key=lambda s: (0.5 * s.get("battery_pct", 0) / 100.0
-                           + 0.5 * s.get("ram_free", 0) / max(max_ram, 1)),
-        ).get("id")
-
-    # ------------------------------------------------------------------ #
-    # Interface principal                                                  #
-    # ------------------------------------------------------------------ #
-
-    def decide(self, task_dict, fleet, battery_safety_pct=20.0):
-        candidates = [
-            s for s in fleet
-            if s.get("region") == task_dict.get("region")
-            and s.get("battery_pct", 100.0) > battery_safety_pct
-            and s.get("ram_free", 0) >= task_dict.get("ram", 0)
-        ]
-
-        state  = self._encode_state(task_dict, fleet)
-        q_vals = self.q_table[state]
-
-        # ε-greedy
-        if random.random() < self.epsilon:
-            action = random.choice(self.ACTIONS)
-        else:
-            action = max(q_vals, key=q_vals.get)
-
-        decision_id = self._resolve_action(action, candidates)
-        forced_drop = (decision_id is None and action != 3)
-
-        # Recompensa imediata — sem componente semântico (DRL é caixa-preta para anomalias)
-        if decision_id is not None:
-            chosen_bat = next(
-                (s.get("battery_pct", 0) for s in candidates if s.get("id") == decision_id), 0
+        from stable_baselines3 import DQN
+        path = os.path.abspath(_MODEL_PATH)
+        if not os.path.exists(path):
+            raise FileNotFoundError(
+                f"DRL model not found at {path}. "
+                "Run: python scripts/train_drl.py"
             )
-            reward = 1.0 + 0.1 * (chosen_bat / 100.0)   # bônus por bateria mais alta
-        elif forced_drop:
-            reward = -0.5   # drop inevitável (sem candidatos válidos)
-        else:
-            reward = -1.0   # DROP voluntário quando havia candidatos
+        self.model = DQN.load(path)
+        print(f">>> [ENGINE] DRL Scheduler Initialized (SB3-DQN | {path})")
+        self._step = 0
 
-        # Atualização TD(0)
-        q_vals[action] += self.ALPHA * (reward - q_vals[action])
+    # ------------------------------------------------------------------ #
+    # Public interface                                                     #
+    # ------------------------------------------------------------------ #
+
+    def decide(self, task_dict, fleet, battery_safety_pct=_BAT_SAFETY):
+        obs = self._build_obs(task_dict, fleet)
+        action, _ = self.model.predict(obs, deterministic=True)
+        action = int(action)
+
+        decision_id = self._resolve_action(action, task_dict, fleet, battery_safety_pct)
+
         self._step += 1
-
-        action_names = ["PREFER_BATTERY", "PREFER_RAM", "PREFER_BALANCED", "DROP"]
-        print(f"   [DRL ε={self.epsilon:.2f} step={self._step}] "
-              f"action={action_names[action]} → SAT {decision_id} | r={reward:.2f} "
-              f"| Q={q_vals[action]:.3f}")
+        action_names = ["PREFER_SAT1(BR)", "PREFER_SAT2(EU)", "PREFER_SAT15(US)", "DROP"]
+        sat_str = f"SAT {decision_id}" if decision_id is not None else "None"
+        print(f"   [DRL-DQN step={self._step}] action={action_names[action]} → {sat_str}")
 
         return decision_id
 
     # ------------------------------------------------------------------ #
-    # Diagnóstico                                                          #
+    # Observation builder                                                  #
     # ------------------------------------------------------------------ #
 
-    def print_qtable(self):
-        region_names = ["USA", "BRAZIL", "EUROPE"]
-        bat_names    = ["low(<40%)", "mid(40-70%)", "high(>70%)"]
-        action_names = ["PREFER_BATTERY", "PREFER_RAM", "PREFER_BALANCED", "DROP"]
-        print("\n--- DRL Q-Table (estados visitados) ---")
-        for (reg, bat_bin, ram, anom), qv in sorted(self.q_table.items()):
-            row = f"  [{region_names[reg]} | bat={bat_names[bat_bin]} | ram_ok={ram} | anomaly={anom}] "
-            row += " | ".join(f"{action_names[a]}={qv[a]:.3f}" for a in self.ACTIONS)
-            print(row)
-        print(f"  Estados visitados: {len(self.q_table)} / 36")
-        print(f"  Decisões: {self._step} | ε final: {self.epsilon:.3f}")
-        print("--------------------------------------\n")
+    def _build_obs(self, task_dict, fleet):
+        region_oh = [0.0, 0.0, 0.0]
+        ridx = _REGION_IDX.get(task_dict.get("region", "USA"), 0)
+        region_oh[ridx] = 1.0
+        has_anomaly = float(bool(task_dict.get("semantic_anomaly")))
+
+        fleet_by_id = {s["id"]: s for s in fleet}
+        sat_features = []
+        for sat_def in _SAT_ORDER:
+            sat = fleet_by_id.get(sat_def["id"], {})
+            sat_features += [
+                sat.get("battery_pct", 0.0) / 100.0,
+                sat.get("ram_free",    0.0) / _RAM_TOTAL,
+                float(sat.get("solar_charging", True)),
+            ]
+
+        return np.array(region_oh + [has_anomaly] + sat_features, dtype=np.float32)
+
+    # ------------------------------------------------------------------ #
+    # Action → satellite mapping                                          #
+    # ------------------------------------------------------------------ #
+
+    def _resolve_action(self, action, task_dict, fleet, battery_safety_pct):
+        task_region = task_dict.get("region")
+        task_ram    = task_dict.get("ram", 0)
+
+        if action == 3:
+            return None  # explicit DROP
+
+        if action >= len(_SAT_ORDER):
+            return None
+
+        target_def = _SAT_ORDER[action]
+        fleet_by_id = {s["id"]: s for s in fleet}
+        sat = fleet_by_id.get(target_def["id"])
+
+        if sat is None:
+            return None
+        if sat.get("region") != task_region:
+            return None
+        if sat.get("battery_pct", 0.0) <= battery_safety_pct:
+            return None
+        if sat.get("ram_free", 0.0) < task_ram:
+            return None
+
+        return sat["id"]

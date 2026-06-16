@@ -312,7 +312,11 @@ class MECOrchestrator:
             compliant_n   = sum(r['semantic_compliant'] for r in self.task_log)
             anomaly_tasks = [r for r in self.task_log if r['anomaly']]
 
-            print(f"SUCCESS RATE:             {success_rate:.1f}%")
+            effective_n   = sum(1 for r in self.task_log if r['success'] == 1 and r['semantic_compliant'] == 1)
+            correct_drops = sum(1 for r in self.task_log if r['success'] == 0 and r['semantic_compliant'] == 1)
+            print(f"SUCCESS RATE:             {success_rate:.1f}%  (throughput — tarefas roteadas)")
+            print(f"EFFECTIVE SUCCESS:        {effective_n}/{n} ({effective_n/n*100:.1f}%)  (roteadas + semanticamente corretas)")
+            print(f"CORRECT DROPS:            {correct_drops}  (drops semanticamente válidos, ex: hardware failure)")
             print(f"AVG LATENCY:              {avg_lat:.1f} ms")
             print(f"TOTAL ENERGY:             {total_joules:.3f} J")
             print(f"JOULES/DECISION:          {avg_joules:.4f} J")
@@ -361,6 +365,9 @@ class MECOrchestrator:
                 "anomaly_task_count":       len(anomaly_tasks),
                 "semantic_compliance_rate": round(compliant / n, 4),
                 "anomaly_compliance_rate":  round(anom_compliant / len(anomaly_tasks), 4) if anomaly_tasks else None,
+                "effective_success_count":  sum(1 for r in self.task_log if r['success'] == 1 and r['semantic_compliant'] == 1),
+                "effective_success_rate":   round(sum(1 for r in self.task_log if r['success'] == 1 and r['semantic_compliant'] == 1) / n, 4),
+                "correct_drop_count":       sum(1 for r in self.task_log if r['success'] == 0 and r['semantic_compliant'] == 1),
             })
             # RAM utilization ao final da simulação
             ram_util = [

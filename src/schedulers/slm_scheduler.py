@@ -11,18 +11,45 @@ load_dotenv()
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 API_KEY        = os.environ.get("GEMINI_API_KEY")
-SLM_MODEL      = os.environ.get("SLM_MODEL", "gemma-3n-e4b-it")
+SLM_MODEL      = os.environ.get("SLM_MODEL", "gemma-4-26b-a4b-it")
 NPU_LATENCY_MS = float(os.environ.get("SLM_NPU_LATENCY_MS", "50.0"))
 RPM_LIMIT      = int(os.environ.get("SLM_RPM_LIMIT", "14"))  # conservative under the 15 RPM cap
+
+
+def _parse_gemma_json(text):
+    """
+    Parse JSON from Gemma output which may include chain-of-thought tokens
+    between fields. Strategy: try full JSON parse first, then extract
+    key-value pairs and reconstruct, handling null values.
+    """
+    # 1. Try standard JSON parse on the full text or first {...} block
+    for pattern in (r'\{[^{}]*\}', r'\{.*\}'):
+        match = re.search(pattern, text, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group())
+            except json.JSONDecodeError:
+                pass
+
+    # 2. Extract individual key-value pairs scattered across chain-of-thought text
+    action       = re.search(r'"action"\s*:\s*"([^"]+)"', text)
+    target       = re.search(r'"target_region"\s*:\s*(?:"([^"]*)"|null)', text)
+    reason       = re.search(r'"reason"\s*:\s*"([^"]*)"', text)
+    if action:
+        return {
+            "action":        action.group(1),
+            "target_region": target.group(1) if target and target.group(1) else None,
+            "reason":        reason.group(1) if reason else "",
+        }
+    return None
 
 _PROMPT_TEMPLATE = """\
 CONTEXT: You are an AI scheduler embedded in a Low-Earth-Orbit satellite (edge node). \
 You have strict resource constraints and must make fast routing decisions. \
-Inter-satellite links (ISL) are always available — connectivity is never the bottleneck. \
+Inter-satellite links (ISL) are always available. \
 Output ONLY valid JSON — no markdown, no explanation.
 
 TASK:
-  id: {task_id}
   region: {region}
   ram_required: {ram} MB
   anomaly: "{anomaly}"
@@ -30,17 +57,12 @@ TASK:
 AVAILABLE SATELLITES:
 {fleet_lines}
 
-ROUTING RULES (apply in order, use semantic reasoning on the anomaly field):
-  1. Data privacy regulations (e.g. GDPR, EU privacy law, or similar): route exclusively to a satellite
-     in the geographically relevant region (e.g. EUROPE for EU regulations). Drop if none available.
-  2. Data sovereignty constraints (e.g. national laws requiring data to stay within a country's jurisdiction):
-     route exclusively to a satellite in the required country's region. Drop if none available.
-  3. Critical hardware failure that makes the task unexecutable (e.g. a sensor, camera, or component
-     required to process this task is broken): drop the task entirely.
-  4. No anomaly or unknown anomaly: route to any satellite in the task's region with battery_pct > 20%
-     and sufficient RAM. Prefer the satellite with the highest battery_pct (solar_charging=true is a bonus).
-  5. Use action='process' when routing to the task's own region, action='route' when forwarding to a
-     different region, action='drop' only when no compliant satellite exists or a fatal hardware failure applies.
+ROUTING RULES (apply in order):
+  1. GDPR/EU privacy anomaly: route exclusively to EUROPE. Drop if unavailable.
+  2. Sovereignty/national data anomaly: route to task country region. Drop if unavailable.
+  3. Critical hardware failure anomaly: drop the task entirely.
+  4. No anomaly: route to satellite in task region with battery_pct > 20% and sufficient RAM.
+  5. action=process when routing to task region, action=route when forwarding elsewhere, action=drop only when no valid satellite or hardware failure.
 
 Output ONLY valid JSON:
 {{"action": "process|route|drop", "target_region": "USA|BRAZIL|EUROPE|null", "reason": "one short sentence"}}
@@ -96,11 +118,10 @@ class SLMScheduler:
             f"  SAT {s['id']} | region={s['region']}"
             f" | battery_pct={s['battery_pct']:.0f}%"
             f" | solar_charging={s['solar_charging']}"
-            f" | ram_free={s['ram_free']} MB"
+            f" | ram_free={s['ram_free']:.0f} MB"
             for s in fleet
         )
         return _PROMPT_TEMPLATE.format(
-            task_id=task_dict.get("id"),
             region=task_dict.get("region", "?"),
             ram=task_dict.get("ram", 0),
             anomaly=task_dict.get("semantic_anomaly", "none"),
@@ -133,27 +154,33 @@ class SLMScheduler:
             "contents": [{"parts": [{"text": self._build_prompt(task_dict, fleet)}]}],
             "generationConfig": {
                 "temperature": 0.0,
-                "maxOutputTokens": 128,
+                "maxOutputTokens": 1024,
             },
         }
-        for attempt in range(3):
+        for attempt in range(4):
             try:
                 t0 = time.perf_counter()
                 r = requests.post(url, headers=headers, json=data, verify=False, timeout=30)
                 latencia_ms = (time.perf_counter() - t0) * 1000
                 if r.status_code == 200:
                     raw = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                    match = re.search(r'\{.*?\}', raw, re.DOTALL)
-                    if not match:
-                        print(f"   [SLM Parse Error] No JSON object found in: {raw[:80]}")
+                    # Gemma outputs chain-of-thought between JSON fields; extract key-value pairs
+                    combined = "{" + raw if not raw.lstrip().startswith("{") else raw
+                    result = _parse_gemma_json(combined)
+                    if result is None:
+                        print(f"   [SLM Parse Error] No JSON found in: {raw[:80]}")
                         break
-                    result = json.loads(match.group())
                     print(f"   [SLM {SLM_MODEL} {latencia_ms:.0f}ms] action={result.get('action')}"
                           f" target={result.get('target_region')} reason={result.get('reason', '')}")
                     return result
                 elif r.status_code == 429:
                     wait = 30 * (attempt + 1)
-                    print(f"   [SLM Rate Limit] Tentativa {attempt+1}/3 — aguardando {wait}s")
+                    print(f"   [SLM Rate Limit] Tentativa {attempt+1}/4 — aguardando {wait}s")
+                    time.sleep(wait)
+                    continue
+                elif r.status_code == 500:
+                    wait = 10 * (attempt + 1)
+                    print(f"   [SLM Server Error 500] Tentativa {attempt+1}/4 — aguardando {wait}s")
                     time.sleep(wait)
                     continue
                 else:
