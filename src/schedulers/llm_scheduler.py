@@ -11,32 +11,26 @@ load_dotenv()
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 API_KEY   = os.environ.get("GEMINI_API_KEY")
-LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-2.0-flash-lite")
-RPM_LIMIT = int(os.environ.get("LLM_RPM_LIMIT", "14"))
+LLM_MODEL = os.environ.get("LLM_MODEL", "gemini-3.1-flash-lite")
+RPM_LIMIT = int(os.environ.get("LLM_RPM_LIMIT", "10"))
 
 _PROMPT_TEMPLATE = """\
 You are a centralized satellite network orchestrator managing a Low-Earth-Orbit constellation.
 Inter-satellite links (ISL) are always available — connectivity is never the bottleneck.
-Analyze the task and fleet state, then output ONLY valid JSON — no markdown, no explanation.
+Output ONLY valid JSON — no markdown, no explanation.
 
-TASK:
-  id: {task_id}
-  region: {region}
-  ram_required: {ram} MB
-  anomaly: "{anomaly}"
+TASK: id={task_id}, region={region}, ram={ram} MB, anomaly="{anomaly}"
 
 AVAILABLE SATELLITES:
 {fleet_lines}
 
-ROUTING RULES (apply in order, use semantic reasoning on the anomaly field):
-  1. Data privacy regulations (e.g. GDPR, EU privacy law, or similar): route exclusively to a satellite
-     in the geographically relevant region (e.g. EUROPE for EU regulations). Drop if none available.
-  2. Data sovereignty constraints (e.g. national laws requiring data to stay within a country's jurisdiction):
-     route exclusively to a satellite in the required country's region. Drop if none available.
-  3. Critical hardware failure that makes the task unexecutable (e.g. a sensor, camera, or component
-     required to process this task is broken): drop the task entirely.
-  4. No anomaly or unknown anomaly: route to any satellite in the task's region with battery_pct > 20%
-     and RAM >= task requirement. Prefer the satellite with the highest battery_pct.
+ROUTING RULES (apply in order):
+  1. EU data privacy / GDPR anomaly: route to the EUROPE satellite (return its satellite_id=ID).
+     Ignore task origin region. Drop only if no EUROPE satellite meets battery/RAM requirements.
+  2. Data sovereignty / national jurisdiction anomaly (e.g. soberania_brasil): route to the
+     satellite in the required country (Brazil→SAT in BRAZIL region). Drop only if unavailable.
+  3. Critical hardware failure (broken sensor/camera): drop task entirely (satellite_id=null).
+  4. No anomaly: route to any satellite in the task's region with battery_pct > 20% and sufficient RAM.
 
 Output ONLY valid JSON:
 {{"satellite_id": <integer id or null>, "reason": "one short sentence"}}
@@ -111,7 +105,7 @@ class LLMScheduler:
         for attempt in range(3):
             try:
                 t0 = time.perf_counter()
-                r = requests.post(url, headers=headers, json=data, verify=False, timeout=30)
+                r = requests.post(url, headers=headers, json=data, verify=False, timeout=60)
                 latency_ms = (time.perf_counter() - t0) * 1000
                 if r.status_code == 200:
                     print(f"   [LLM] Resposta em {latency_ms:.0f}ms")
