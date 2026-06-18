@@ -27,7 +27,7 @@ TASK_DURATION_S = 60.0
 
 # Modelo de eclipse orbital — bateria drena quando sem luz solar (premissa ISL sempre disponível)
 ORBITAL_PERIOD_S      = 5400.0  # período orbital LEO (90 min)
-ECLIPSE_THRESHOLD     = -0.10   # sin < -0.1 → eclipse (~35% do ciclo ≈ 31.5 min/órbita)
+ECLIPSE_THRESHOLD     = -0.10   # sin < -0.1 → eclipse (~53% do ciclo ≈ 46 min/órbita)
 SOLAR_CHARGE_RATE_PCT = 0.083   # +0.083%/step em luz solar (+1%/min)
 ECLIPSE_DRAIN_PCT     = 0.040   # -0.040%/step em eclipse (consumo de housekeeping)
 TASK_ENERGY_COST_PCT  = 2.0     # -2% SOC por tarefa aceita (consumo de processamento MEC)
@@ -266,7 +266,7 @@ class MECOrchestrator:
         else:
             # LLM / BASELINE / DRL: sync
             t_wall      = time.perf_counter()
-            decision_id = self.brain.decide(task, fleet)
+            decision_id = self.brain.decide(task, fleet, BATTERY_SAFETY_PCT)
             wall_ms     = (time.perf_counter() - t_wall) * 1000
 
             latency_ms  = wall_ms + LLM_PROPAGATION_MS if self._engine == "LLM" else wall_ms

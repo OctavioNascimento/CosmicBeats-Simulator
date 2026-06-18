@@ -163,13 +163,18 @@ class SLMScheduler:
                 r = requests.post(url, headers=headers, json=data, verify=False, timeout=30)
                 latencia_ms = (time.perf_counter() - t0) * 1000
                 if r.status_code == 200:
-                    raw = r.json()["candidates"][0]["content"]["parts"][0]["text"]
-                    # Gemma outputs chain-of-thought between JSON fields; extract key-value pairs
+                    parts = r.json()["candidates"][0]["content"].get("parts", [])
+                    # Gemma returns thinking and the final answer as separate parts
+                    # (each tagged "thought": true/false) — use the non-thought
+                    # parts; some thinking-heavy responses omit the flag on the
+                    # final part, so fall back to concatenating everything.
+                    answer_parts = [p.get("text", "") for p in parts if not p.get("thought", False)]
+                    raw = "".join(answer_parts) if answer_parts else "".join(p.get("text", "") for p in parts)
                     combined = "{" + raw if not raw.lstrip().startswith("{") else raw
                     result = _parse_gemma_json(combined)
                     if result is None:
-                        print(f"   [SLM Parse Error] No JSON found in: {raw[:80]}")
-                        break
+                        print(f"   [SLM Parse Error] Tentativa {attempt+1}/4 — No JSON found in: {raw[:80]}")
+                        continue
                     print(f"   [SLM {SLM_MODEL} {latencia_ms:.0f}ms] action={result.get('action')}"
                           f" target={result.get('target_region')} reason={result.get('reason', '')}")
                     return result
