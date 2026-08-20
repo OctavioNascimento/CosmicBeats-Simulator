@@ -369,12 +369,28 @@ class MECOrchestrator:
                 "effective_success_rate":   round(sum(1 for r in self.task_log if r['success'] == 1 and r['semantic_compliant'] == 1) / n, 4),
                 "correct_drop_count":       sum(1 for r in self.task_log if r['success'] == 0 and r['semantic_compliant'] == 1),
             })
-            # RAM utilization ao final da simulação
-            ram_util = [
-                (s.mec_ram_total - s.mec_ram_free) / s.mec_ram_total * 100
-                for s in self.mec_satellites
-            ]
-            summary["avg_ram_utilization_pct"] = round(sum(ram_util) / len(ram_util), 1) if ram_util else 0.0
+            # RAM utilization ponderada pelo tempo (integral de RAM_usada×dt / sim_total×RAM_total).
+            # Métrica de snapshot (final tick) era idêntica em todos os engines pois os últimos
+            # 60s têm as mesmas tarefas aceitas — este cálculo usa o task_log completo.
+            sim_duration = self._last_step_time or 1.0
+            sat_ram_seconds: dict = {}
+            for r in self.task_log:
+                if r['success'] != 1:
+                    continue
+                t_arrive = r['arrival_time_s']
+                hold = min(TASK_DURATION_S, sim_duration - t_arrive)
+                if hold > 0:
+                    sid = str(r['decision_sat_id'])
+                    sat_ram_seconds[sid] = sat_ram_seconds.get(sid, 0.0) + hold * r.get('ram', 500)
+            if self.mec_satellites and sim_duration > 0:
+                tw_utils = [
+                    sat_ram_seconds.get(str(getattr(s, 'nodeID')), 0.0)
+                    / (sim_duration * s.mec_ram_total) * 100
+                    for s in self.mec_satellites
+                ]
+                summary["avg_ram_utilization_pct"] = round(sum(tw_utils) / len(tw_utils), 1)
+            else:
+                summary["avg_ram_utilization_pct"] = 0.0
             # Estado final de bateria por satélite
             for s in self.mec_satellites:
                 summary[f"sat_{getattr(s, 'nodeID')}_final_battery_pct"] = round(
