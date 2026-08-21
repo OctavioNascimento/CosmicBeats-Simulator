@@ -16,6 +16,7 @@ semantic_compliance vs SLM/LLM in comparative results.
 """
 
 import os
+import random
 import numpy as np
 
 _MODEL_PATH = os.path.join(os.path.dirname(__file__), "..", "..", "models", "best_model.zip")
@@ -41,6 +42,8 @@ class DRLScheduler:
                 "Run: python scripts/train_drl.py"
             )
         self.model = DQN.load(path)
+        random.seed(0)  # DQN.load() reseeds the global RNG via SB3's set_random_seed,
+        # shifting the Poisson arrival sequence — restore the canonical seed here.
         print(f">>> [ENGINE] DRL Scheduler Initialized (SB3-DQN | {path})")
         self._step = 0
 

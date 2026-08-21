@@ -45,6 +45,14 @@ _TASK_RAM   = 500.0
 _BAT_SAFETY = 20.0
 _ANOMALY_RATE = 0.10
 
+# Hidden anomaly subtypes used only to SHAPE the reward signal during training.
+# They are NEVER exposed in the observation (_build_obs only sees has_anomaly) —
+# the agent must learn the single best "blind" fallback action for has_anomaly=1,
+# the same way it would have to act in the real simulation without reading the
+# anomaly's semantic meaning. This preserves the scientific invariant while still
+# letting the agent do better than ignoring the flag entirely.
+_ANOMALY_TYPES = ["hardware", "gdpr", "sovereignty"]
+
 
 class NTNMECEnv(gym.Env):
     """Single-step routing decision environment for NTN-MEC satellites."""
@@ -89,6 +97,7 @@ class NTNMECEnv(gym.Env):
 
         task_region = _IDX_REGION[rng.integers(0, 3)]
         has_anomaly = float(rng.random() < _ANOMALY_RATE)
+        anomaly_type = _ANOMALY_TYPES[rng.integers(0, 3)] if has_anomaly else None
 
         fleet = []
         for sat in _SATS:
@@ -108,6 +117,7 @@ class NTNMECEnv(gym.Env):
             "region":          task_region,
             "ram":             _TASK_RAM,
             "semantic_anomaly": "anomaly" if has_anomaly else None,
+            "_anomaly_type":   anomaly_type,  # hidden — reward shaping only
         }
         return task, fleet
 
@@ -135,22 +145,47 @@ class NTNMECEnv(gym.Env):
     # ------------------------------------------------------------------ #
 
     def _evaluate_action(self, action):
-        """Map action → (decision_id, reward)."""
-        task_region = self._task["region"]
-        task_ram    = self._task["ram"]
+        """Map action → (decision_id, reward).
 
-        # Candidates in task region with sufficient battery and RAM
+        Reward is shaped by the hidden anomaly subtype (never exposed in the
+        observation) so the agent learns the best possible "blind" fallback
+        action for has_anomaly=1 — it still cannot tell GDPR from a hardware
+        failure, but training nudges it toward whichever single behavior
+        maximizes expected compliance across the real anomaly mix.
+        """
+        task_region  = self._task["region"]
+        task_ram     = self._task["ram"]
+        anomaly_type = self._task.get("_anomaly_type")
+
+        # Hardware failures must always be dropped, regardless of resources.
+        if anomaly_type == "hardware":
+            if action == 3:
+                return None, 1.0
+            return None, -2.0
+
+        # GDPR tasks must be routed to EUROPE; sovereignty tasks must be routed
+        # to BRAZIL specifically (matches ai_logic._semantic_compliant) — only
+        # plain (no-anomaly) tasks use the task's own region as the target.
+        if anomaly_type == "gdpr":
+            required_region = "EUROPE"
+        elif anomaly_type == "sovereignty":
+            required_region = "BRAZIL"
+        else:
+            required_region = task_region
         candidates = [
             s for s in self._fleet
-            if s["region"] == task_region
+            if s["region"] == required_region
             and s["battery_pct"] > _BAT_SAFETY
             and s["ram_free"]    >= task_ram
         ]
 
         if action == 3:  # explicit DROP
+            # Per ai_logic._semantic_compliant, drop is only ever compliant for
+            # hardware failures (handled above) — GDPR/sovereignty/none always
+            # require an actual route to be compliant, so drop is never rewarded here.
             if candidates:
-                return None, -1.0   # voluntary drop when route existed
-            return None, -0.5       # forced drop (no candidates)
+                return None, -1.0   # voluntary drop when a valid route existed
+            return None, -0.5       # forced drop, no valid candidate available
 
         # Satellite selection: action 0→SAT[0], 1→SAT[1], 2→SAT[2]
         if action >= len(self._fleet):
@@ -159,7 +194,7 @@ class NTNMECEnv(gym.Env):
         chosen = self._fleet[action]
 
         # Validate: region, battery, RAM
-        if chosen["region"] != task_region:
+        if chosen["region"] != required_region:
             return None, -2.0
         if chosen["battery_pct"] <= _BAT_SAFETY:
             return None, -2.0
